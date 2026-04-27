@@ -1,4 +1,6 @@
-﻿Public Class frmPanelHolder
+﻿Imports System.Security
+
+Public Class frmPanelHolder
     ' Global variables for the class
     Dim pnlOverlay As New Panel
     Private btnBack As Object
@@ -373,19 +375,10 @@
 
         mdiPABEO.lblHeader.Text = "Services"
 
-        txtServiceName.Clear()
         txtServiceDescription.Clear()
     End Sub
 
     Private Sub txtServiceID_TextChanged(sender As Object, e As EventArgs) Handles txtServiceID.TextChanged
-
-    End Sub
-
-    Private Sub txtServiceName_TextChanged(sender As Object, e As EventArgs) Handles txtServiceName.TextChanged
-
-    End Sub
-
-    Private Sub cmbServiceType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceType.SelectedIndexChanged
 
     End Sub
 
@@ -406,34 +399,78 @@
 
 
     Private Sub btnSaveService_Click(sender As Object, e As EventArgs) Handles btnSaveService.Click
-        ' 1. Basic Validation
-        If String.IsNullOrWhiteSpace(txtServiceName.Text) OrElse cmbServiceType.SelectedIndex = -1 Then
-            MessageBox.Show("Please provide a Service Name and Type.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ' 1. Basic Validation - Ensure required dropdowns are selected
+        If cmbServiceType.SelectedIndex = -1 OrElse cmbServiceName.SelectedIndex = -1 Then
+            MessageBox.Show("Please complete the Service Information fields.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' 2. Prepare Data (Treating pLimit as a standard String)
-        Dim sName As String = txtServiceName.Text.Trim().ToUpper()
-        Dim sType As String = cmbServiceType.Text.ToUpper()
+        ' 2. Prepare Data 
+        Dim sName As String = cmbServiceName.Text
+        Dim sType As String = cmbServiceType.Text
         Dim sDesc As String = txtServiceDescription.Text.Trim()
-        Dim pLimit As String = txtPolicyLimit.Text.Trim() ' No numeric checks here!
+        Dim pLimit As String = cmbPolicyLimit.Text
+        ' Updated Machinery ID logic based on your specific table IDs
+        Dim machID As String = "0"
+        Dim selectedMachine As String = cmbMachineryID.Text.ToUpper()
 
-        Dim empID As String = If(cmbSEmployeeID.SelectedValue IsNot Nothing, cmbSEmployeeID.SelectedValue.ToString(), "0")
+        If selectedMachine.Contains("WALK-BEHIND") Then
+            machID = "14"
+        ElseIf selectedMachine.Contains("RIDE-IN") Then
+            machID = "21"
+        ElseIf selectedMachine.Contains("DC35") Then
+            machID = "15"
+        ElseIf selectedMachine.Contains("DC60") Then
+            machID = "17" ' Based on your machinery table screenshot
+        ElseIf selectedMachine.Contains("DC70") Then
+            machID = "16"
+        ElseIf selectedMachine.Contains("M9540") Then
+            machID = "18"
+        ElseIf selectedMachine.Contains("L3608") OrElse selectedMachine.Contains("L3600") Then
+            machID = "19"
+        ElseIf selectedMachine.Contains("TYM") Then
+            machID = "24"
+        ElseIf selectedMachine.Contains("CORN SHELLER") Then
+            machID = "25"
+        ElseIf selectedMachine.Contains("FLATBED") Then
+            machID = "22"
+        End If
 
-        ' 3. INSERT Query
-        Dim sql As String = "INSERT INTO service (service_name, service_type, description, policy_limit, employee_id) " &
-                       "VALUES ('" & sName & "', '" & sType & "', '" & sDesc & "', '" & pLimit & "', '" & empID & "')"
+        ' Defaulting to 1 for Employee ID as seen in your table structure
+        Dim empID As String = "1"
+
+        ' 3. SQL Query - Points to the singular 'service' table
+        Dim sql As String = "INSERT INTO service (service_name, service_type, description, machinery_id, policy_limit, employee_id) " &
+                           "VALUES ('" & sName & "', '" & sType & "', '" & sDesc & "', '" & machID & "', '" & pLimit & "', '" & empID & "')"
 
         Try
+            ' Execute query via Module1
             readqueary(sql)
-            MessageBox.Show("Service successfully saved!", "PABEO System", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            LoadServicesGrid()
-            RefreshServiceStats()
-            btnServiceCancel_Click(Nothing, Nothing)
+            MessageBox.Show("Service added successfully!", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' --- REAL-TIME REFRESH ---
+            ' This updates the background list immediately
+            LoadServiceGrid()
+
+            ' --- UI CLEANUP ---
+            ' Resets the dropdowns for the next time the panel opens
+            ClearServiceFields()
+
+            ' --- HIDE OVERLAY ---
+            ' Closes the panel and dark background
+            pnlOverlay.Visible = False
+            Me.pnlCreateService.Visible = False
+
+            ' Safely remove controls from the MDI parent
+            If mdiPABEO.Controls.Contains(pnlOverlay) Then mdiPABEO.Controls.Remove(pnlOverlay)
+            If mdiPABEO.Controls.Contains(Me.pnlCreateService) Then mdiPABEO.Controls.Remove(Me.pnlCreateService)
+
+            ' Reset Header text
+            mdiPABEO.lblHeader.Text = "Services"
 
         Catch ex As Exception
-            MessageBox.Show("Database Error: " & ex.Message & vbCrLf & "Check if policy_limit is still an INT in MySQL!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error saving service: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -462,7 +499,7 @@
             If cmdread IsNot Nothing Then cmdread.Close()
         End Try
     End Sub
-    Private Sub cmbSEmployeeID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSEmployeeID.SelectedIndexChanged
+    Private Sub cmbSEmployeeID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEmployeeID.SelectedIndexChanged
 
     End Sub
 
@@ -477,12 +514,12 @@
                 dt.Load(cmdread)
 
                 ' Bind the data to the ComboBox
-                cmbSEmployeeID.DataSource = dt
-                cmbSEmployeeID.DisplayMember = "full_name"   ' What the user sees
-                cmbSEmployeeID.ValueMember = "employee_id"   ' The actual ID saved to DB
+                cmbEmployeeID.DataSource = dt
+                cmbEmployeeID.DisplayMember = "full_name"   ' What the user sees
+                cmbEmployeeID.ValueMember = "employee_id"   ' The actual ID saved to DB
 
                 ' Set to -1 so it starts empty
-                cmbSEmployeeID.SelectedIndex = -1
+                cmbEmployeeID.SelectedIndex = -1
             End If
         Catch ex As Exception
             Console.WriteLine("Error loading employees: " & ex.Message)
@@ -504,5 +541,121 @@
         Finally
             If cmdread IsNot Nothing Then cmdread.Close()
         End Try
+    End Sub
+
+
+
+    ' Level 1: Filter Service Name by Service Type
+    Private Sub cmbServiceType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceType.SelectedIndexChanged
+        cmbServiceName.Items.Clear()
+        cmbMachineryID.Items.Clear()
+        cmbPolicyLimit.Items.Clear()
+
+        Select Case cmbServiceType.Text
+            Case "LAND PREPARATION"
+                cmbServiceName.Items.AddRange({"LAND PREPARATION SERVICE", "SOIL TILLING SERVICE", "FIELD EXCAVATION SERVICE"})
+            Case "PLANTING"
+                cmbServiceName.Items.Add("RICE PLANTING SERVICE")
+            Case "HARVESTING"
+                cmbServiceName.Items.AddRange({"RICE HARVESTING SERVICE", "CORN HARVESTING SERVICE"})
+            Case "POST-HARVEST"
+                cmbServiceName.Items.AddRange({"CORN SHELLING SERVICE", "GRAIN DRYING SERVICE"})
+        End Select
+    End Sub
+
+    ' Level 2: Filter Machinery by Service Name
+    Private Sub cmbServiceName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceName.SelectedIndexChanged
+        cmbMachineryID.Items.Clear()
+        cmbPolicyLimit.Items.Clear()
+
+        Select Case cmbServiceName.Text
+            Case "RICE PLANTING SERVICE"
+                cmbMachineryID.Items.AddRange({"WALK-BEHIND TRANSPLANTER", "RIDE-IN TYPE TRANSPLANTER"})
+            Case "RICE HARVESTING SERVICE"
+                cmbMachineryID.Items.AddRange({"DC35 COMBINE HARVESTER", "DC60 COMBINE HARVESTER", "DC70 COMBINE HARVESTER"})
+            Case "CORN HARVESTING SERVICE"
+                cmbMachineryID.Items.Add("DC70 COMBINE HARVESTER")
+            Case "LAND PREPARATION SERVICE", "SOIL TILLING SERVICE", "FIELD EXCAVATION SERVICE"
+                cmbMachineryID.Items.AddRange({"M9540 TRACTOR", "L3608 TRACTOR", "TYM TRACTOR"})
+            Case "CORN SHELLING SERVICE"
+                cmbMachineryID.Items.Add("CORN SHELLER")
+            Case "GRAIN DRYING SERVICE"
+                cmbMachineryID.Items.Add("FLATBED DRYER")
+        End Select
+    End Sub
+
+    ' Level 3: Filter Policy Limit by Machinery
+    Private Sub cmbMachineryID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMachineryID.SelectedIndexChanged
+        cmbPolicyLimit.Items.Clear()
+
+        ' We use 'selectedPolicyText' to avoid conflict with 'System.Security.Policy'
+        Dim selectedPolicyText As String = ""
+
+        Select Case cmbMachineryID.Text
+            Case "WALK-BEHIND TRANSPLANTER", "RIDE-IN TYPE TRANSPLANTER"
+                selectedPolicyText = "FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED"
+            Case "DC35 COMBINE HARVESTER", "DC60 COMBINE HARVESTER"
+                selectedPolicyText = "PHP 3000 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED"
+            Case "DC70 COMBINE HARVESTER"
+                If cmbServiceName.Text = "RICE HARVESTING SERVICE" Then
+                    selectedPolicyText = "PHP 3000 PER HECTARE FOR RICE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED"
+                Else
+                    selectedPolicyText = "PHP 5000 PER HECTARE FOR CORN; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED"
+                End If
+            Case "M9540 TRACTOR", "L3608 TRACTOR", "TYM TRACTOR"
+                selectedPolicyText = "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED"
+            Case "CORN SHELLER"
+                selectedPolicyText = "PHP 0.50 PER KG; FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED"
+            Case "FLATBED DRYER"
+                selectedPolicyText = "FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED"
+        End Select
+
+        If selectedPolicyText <> "" Then
+            cmbPolicyLimit.Items.Add(selectedPolicyText)
+            cmbPolicyLimit.SelectedIndex = 0
+        End If
+    End Sub
+
+    Public Sub LoadServiceGrid()
+        Try
+
+            ' Pull fresh data from the singular 'service' table
+            Dim sql As String = "SELECT * FROM service"
+            readqueary(sql)
+
+            Dim dt As New DataTable
+            dt.Load(cmdread)
+
+            ' Ensure the grid doesn't create extra columns
+            dgvServices.AutoGenerateColumns = False
+            dgvServices.DataSource = dt
+            lblTotalServices.Text = dt.Rows.Count.ToString("00")
+
+        Catch ex As Exception
+            ' Optional: Silently handle errors or log them
+        End Try
+    End Sub
+
+    Public Sub ClearServiceFields()
+        ' Clear TextBoxes
+        txtServiceDescription.Clear()
+        ' If Service ID is manual, clear it too:
+        ' txtServiceID.Clear() 
+
+        ' Reset ComboBoxes
+        cmbServiceType.SelectedIndex = -1
+        cmbServiceName.Items.Clear()
+        cmbMachineryID.Items.Clear()
+        cmbPolicyLimit.Items.Clear()
+        cmbEmployeeID.SelectedIndex = -1
+
+        ' Optional: Reset the text property just in case
+        cmbServiceName.Text = ""
+        cmbMachineryID.Text = ""
+        cmbPolicyLimit.Text = ""
+    End Sub
+
+    Private Sub cmbPolicyLimit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPolicyLimit.SelectedIndexChanged
+
     End Sub
 End Class

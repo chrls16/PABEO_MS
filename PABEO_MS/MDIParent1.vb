@@ -102,12 +102,4 @@ Public Class mdiPABEO
 
         lblHeader.Text = headerTitle
     End Sub
-
-    Private Sub mdiPABEO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub pnlForms_Paint(sender As Object, e As PaintEventArgs) Handles pnlForms.Paint
-
-    End Sub
 End Class

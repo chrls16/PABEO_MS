@@ -82,12 +82,6 @@ Partial Class frmPanelHolder
         btExportServiceReport = New Button()
         pnlDGVService = New Panel()
         dgvServices = New DataGridView()
-        service_id = New DataGridViewTextBoxColumn()
-        service_name = New DataGridViewTextBoxColumn()
-        service_type = New DataGridViewTextBoxColumn()
-        service_description = New DataGridViewTextBoxColumn()
-        service_policy_limit = New DataGridViewTextBoxColumn()
-        employee_id = New DataGridViewTextBoxColumn()
         pnlSearchService = New Panel()
         txtServiceSearch = New TextBox()
         btnServiceSearch = New Button()
@@ -178,6 +172,7 @@ Partial Class frmPanelHolder
         lblFCreateSubtitle = New Label()
         lblCreateFarmer = New Label()
         pnlCreateService = New Panel()
+        ImagePolicy = New PictureBox()
         btnSaveService = New Button()
         btnServiceCancel = New Button()
         imgRental = New PictureBox()
@@ -192,7 +187,7 @@ Partial Class frmPanelHolder
         txtServiceID = New TextBox()
         lblSEmployeeID = New Label()
         pnlSEmployee = New Panel()
-        cmbSEmployeeID = New ComboBox()
+        cmbEmployeeID = New ComboBox()
         lblServiceDescription = New Label()
         pnlServiceDescription = New Panel()
         txtServiceDescription = New TextBox()
@@ -201,14 +196,20 @@ Partial Class frmPanelHolder
         cmbServiceType = New ComboBox()
         lblPolicyLimit = New Label()
         pnlPolicyLimit = New Panel()
-        txtPolicyLimit = New TextBox()
+        cmbPolicyLimit = New ComboBox()
         lblServiceName = New Label()
         pnlServiceName = New Panel()
-        txtServiceName = New TextBox()
+        cmbServiceName = New ComboBox()
         lblServiceInformation = New Label()
         lblAddServiceSubtitle = New Label()
         lblAddService = New Label()
-        ImagePolicy = New PictureBox()
+        service_id = New DataGridViewTextBoxColumn()
+        machinery_id = New DataGridViewTextBoxColumn()
+        service_name = New DataGridViewTextBoxColumn()
+        service_type = New DataGridViewTextBoxColumn()
+        service_description = New DataGridViewTextBoxColumn()
+        service_policy_limit = New DataGridViewTextBoxColumn()
+        employee_id = New DataGridViewTextBoxColumn()
         pnlConfig.SuspendLayout()
         pnlConfigForm.SuspendLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -246,6 +247,7 @@ Partial Class frmPanelHolder
         pnlFContact.SuspendLayout()
         pnlFFullname.SuspendLayout()
         pnlCreateService.SuspendLayout()
+        CType(ImagePolicy, ComponentModel.ISupportInitialize).BeginInit()
         CType(imgRental, ComponentModel.ISupportInitialize).BeginInit()
         pnlServiceInfo.SuspendLayout()
         pnlMachineryId.SuspendLayout()
@@ -255,7 +257,6 @@ Partial Class frmPanelHolder
         pnlServiceType.SuspendLayout()
         pnlPolicyLimit.SuspendLayout()
         pnlServiceName.SuspendLayout()
-        CType(ImagePolicy, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlConfig
@@ -785,7 +786,6 @@ Partial Class frmPanelHolder
         ' 
         ' dgvServices
         ' 
-        dgvServices.AllowUserToOrderColumns = True
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvServices.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         dgvServices.BackgroundColor = Color.White
@@ -803,7 +803,7 @@ Partial Class frmPanelHolder
         dgvServices.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         dgvServices.ColumnHeadersHeight = 50
         dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        dgvServices.Columns.AddRange(New DataGridViewColumn() {service_id, service_name, service_type, service_description, service_policy_limit, employee_id})
+        dgvServices.Columns.AddRange(New DataGridViewColumn() {service_id, machinery_id, service_name, service_type, service_description, service_policy_limit, employee_id})
         DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle8.BackColor = SystemColors.Window
         DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F)
@@ -814,8 +814,9 @@ Partial Class frmPanelHolder
         dgvServices.DefaultCellStyle = DataGridViewCellStyle8
         dgvServices.EnableHeadersVisualStyles = False
         dgvServices.GridColor = Color.White
-        dgvServices.Location = New Point(15, 12)
+        dgvServices.Location = New Point(14, 12)
         dgvServices.Name = "dgvServices"
+        dgvServices.ReadOnly = True
         dgvServices.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = SystemColors.Control
@@ -834,48 +835,6 @@ Partial Class frmPanelHolder
         dgvServices.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvServices.Size = New Size(1559, 428)
         dgvServices.TabIndex = 5
-        ' 
-        ' service_id
-        ' 
-        service_id.DataPropertyName = "formatted_id"
-        service_id.HeaderText = "Service ID"
-        service_id.Name = "service_id"
-        service_id.Width = 175
-        ' 
-        ' service_name
-        ' 
-        service_name.DataPropertyName = "service_name"
-        service_name.HeaderText = "Service Name"
-        service_name.Name = "service_name"
-        service_name.Width = 175
-        ' 
-        ' service_type
-        ' 
-        service_type.DataPropertyName = "service_type"
-        service_type.HeaderText = "Service Type"
-        service_type.Name = "service_type"
-        service_type.Width = 175
-        ' 
-        ' service_description
-        ' 
-        service_description.DataPropertyName = "description"
-        service_description.HeaderText = "Description"
-        service_description.Name = "service_description"
-        service_description.Width = 575
-        ' 
-        ' service_policy_limit
-        ' 
-        service_policy_limit.DataPropertyName = "policy_limit"
-        service_policy_limit.HeaderText = "Policy Limit"
-        service_policy_limit.Name = "service_policy_limit"
-        service_policy_limit.Width = 300
-        ' 
-        ' employee_id
-        ' 
-        employee_id.DataPropertyName = "employee_id"
-        employee_id.HeaderText = "Employee ID"
-        employee_id.Name = "employee_id"
-        employee_id.Width = 175
         ' 
         ' pnlSearchService
         ' 
@@ -1916,6 +1875,16 @@ Partial Class frmPanelHolder
         pnlCreateService.Size = New Size(1364, 990)
         pnlCreateService.TabIndex = 29
         ' 
+        ' ImagePolicy
+        ' 
+        ImagePolicy.Image = CType(resources.GetObject("ImagePolicy.Image"), Image)
+        ImagePolicy.Location = New Point(679, 207)
+        ImagePolicy.Name = "ImagePolicy"
+        ImagePolicy.Size = New Size(644, 491)
+        ImagePolicy.SizeMode = PictureBoxSizeMode.StretchImage
+        ImagePolicy.TabIndex = 21
+        ImagePolicy.TabStop = False
+        ' 
         ' btnSaveService
         ' 
         btnSaveService.BackColor = Color.FromArgb(CByte(172), CByte(248), CByte(71))
@@ -2005,7 +1974,7 @@ Partial Class frmPanelHolder
         lblMachineID.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblMachineID.ForeColor = Color.DimGray
         lblMachineID.ImageAlign = ContentAlignment.MiddleLeft
-        lblMachineID.Location = New Point(21, 350)
+        lblMachineID.Location = New Point(328, 265)
         lblMachineID.Name = "lblMachineID"
         lblMachineID.Size = New Size(81, 19)
         lblMachineID.TabIndex = 20
@@ -2016,7 +1985,7 @@ Partial Class frmPanelHolder
         pnlMachineryId.BorderStyle = BorderStyle.FixedSingle
         pnlMachineryId.Controls.Add(cmbMachineryID)
         pnlMachineryId.ForeColor = Color.Black
-        pnlMachineryId.Location = New Point(21, 374)
+        pnlMachineryId.Location = New Point(328, 289)
         pnlMachineryId.Name = "pnlMachineryId"
         pnlMachineryId.Size = New Size(283, 46)
         pnlMachineryId.TabIndex = 19
@@ -2072,7 +2041,7 @@ Partial Class frmPanelHolder
         lblSEmployeeID.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblSEmployeeID.ForeColor = Color.DimGray
         lblSEmployeeID.ImageAlign = ContentAlignment.MiddleLeft
-        lblSEmployeeID.Location = New Point(15, 611)
+        lblSEmployeeID.Location = New Point(21, 583)
         lblSEmployeeID.Name = "lblSEmployeeID"
         lblSEmployeeID.Size = New Size(95, 19)
         lblSEmployeeID.TabIndex = 18
@@ -2081,23 +2050,23 @@ Partial Class frmPanelHolder
         ' pnlSEmployee
         ' 
         pnlSEmployee.BorderStyle = BorderStyle.FixedSingle
-        pnlSEmployee.Controls.Add(cmbSEmployeeID)
+        pnlSEmployee.Controls.Add(cmbEmployeeID)
         pnlSEmployee.ForeColor = Color.Black
-        pnlSEmployee.Location = New Point(15, 635)
+        pnlSEmployee.Location = New Point(21, 607)
         pnlSEmployee.Name = "pnlSEmployee"
         pnlSEmployee.Size = New Size(586, 46)
         pnlSEmployee.TabIndex = 17
         ' 
-        ' cmbSEmployeeID
+        ' cmbEmployeeID
         ' 
-        cmbSEmployeeID.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbSEmployeeID.FlatStyle = FlatStyle.Flat
-        cmbSEmployeeID.Font = New Font("Segoe UI", 12F)
-        cmbSEmployeeID.FormattingEnabled = True
-        cmbSEmployeeID.Location = New Point(3, 8)
-        cmbSEmployeeID.Name = "cmbSEmployeeID"
-        cmbSEmployeeID.Size = New Size(576, 29)
-        cmbSEmployeeID.TabIndex = 14
+        cmbEmployeeID.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbEmployeeID.FlatStyle = FlatStyle.Flat
+        cmbEmployeeID.Font = New Font("Segoe UI", 12F)
+        cmbEmployeeID.FormattingEnabled = True
+        cmbEmployeeID.Location = New Point(3, 8)
+        cmbEmployeeID.Name = "cmbEmployeeID"
+        cmbEmployeeID.Size = New Size(576, 29)
+        cmbEmployeeID.TabIndex = 14
         ' 
         ' lblServiceDescription
         ' 
@@ -2105,7 +2074,7 @@ Partial Class frmPanelHolder
         lblServiceDescription.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblServiceDescription.ForeColor = Color.DimGray
         lblServiceDescription.ImageAlign = ContentAlignment.MiddleLeft
-        lblServiceDescription.Location = New Point(15, 477)
+        lblServiceDescription.Location = New Point(21, 449)
         lblServiceDescription.Name = "lblServiceDescription"
         lblServiceDescription.Size = New Size(155, 19)
         lblServiceDescription.TabIndex = 8
@@ -2116,7 +2085,7 @@ Partial Class frmPanelHolder
         pnlServiceDescription.BorderStyle = BorderStyle.FixedSingle
         pnlServiceDescription.Controls.Add(txtServiceDescription)
         pnlServiceDescription.ForeColor = Color.Black
-        pnlServiceDescription.Location = New Point(15, 499)
+        pnlServiceDescription.Location = New Point(21, 471)
         pnlServiceDescription.Name = "pnlServiceDescription"
         pnlServiceDescription.Size = New Size(585, 104)
         pnlServiceDescription.TabIndex = 7
@@ -2138,7 +2107,7 @@ Partial Class frmPanelHolder
         lblServiceType.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblServiceType.ForeColor = Color.DimGray
         lblServiceType.ImageAlign = ContentAlignment.MiddleLeft
-        lblServiceType.Location = New Point(21, 265)
+        lblServiceType.Location = New Point(21, 183)
         lblServiceType.Name = "lblServiceType"
         lblServiceType.Size = New Size(97, 19)
         lblServiceType.TabIndex = 6
@@ -2149,9 +2118,9 @@ Partial Class frmPanelHolder
         pnlServiceType.BorderStyle = BorderStyle.FixedSingle
         pnlServiceType.Controls.Add(cmbServiceType)
         pnlServiceType.ForeColor = Color.Black
-        pnlServiceType.Location = New Point(21, 289)
+        pnlServiceType.Location = New Point(21, 207)
         pnlServiceType.Name = "pnlServiceType"
-        pnlServiceType.Size = New Size(283, 46)
+        pnlServiceType.Size = New Size(589, 46)
         pnlServiceType.TabIndex = 5
         ' 
         ' cmbServiceType
@@ -2160,10 +2129,10 @@ Partial Class frmPanelHolder
         cmbServiceType.FlatStyle = FlatStyle.Flat
         cmbServiceType.Font = New Font("Segoe UI", 12F)
         cmbServiceType.FormattingEnabled = True
-        cmbServiceType.Items.AddRange(New Object() {"LAND PREPERATION", "PLANTING", "HARVESTING", "POST-HARVEST"})
+        cmbServiceType.Items.AddRange(New Object() {"LAND PREPARATION", "PLANTING", "HARVESTING", "POST-HARVEST"})
         cmbServiceType.Location = New Point(3, 9)
         cmbServiceType.Name = "cmbServiceType"
-        cmbServiceType.Size = New Size(275, 29)
+        cmbServiceType.Size = New Size(581, 29)
         cmbServiceType.TabIndex = 15
         ' 
         ' lblPolicyLimit
@@ -2172,7 +2141,7 @@ Partial Class frmPanelHolder
         lblPolicyLimit.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblPolicyLimit.ForeColor = Color.DimGray
         lblPolicyLimit.ImageAlign = ContentAlignment.MiddleLeft
-        lblPolicyLimit.Location = New Point(327, 265)
+        lblPolicyLimit.Location = New Point(20, 352)
         lblPolicyLimit.Name = "lblPolicyLimit"
         lblPolicyLimit.Size = New Size(96, 19)
         lblPolicyLimit.TabIndex = 4
@@ -2181,22 +2150,24 @@ Partial Class frmPanelHolder
         ' pnlPolicyLimit
         ' 
         pnlPolicyLimit.BorderStyle = BorderStyle.FixedSingle
-        pnlPolicyLimit.Controls.Add(txtPolicyLimit)
+        pnlPolicyLimit.Controls.Add(cmbPolicyLimit)
         pnlPolicyLimit.ForeColor = Color.Black
-        pnlPolicyLimit.Location = New Point(327, 289)
+        pnlPolicyLimit.Location = New Point(20, 376)
         pnlPolicyLimit.Name = "pnlPolicyLimit"
-        pnlPolicyLimit.Size = New Size(283, 46)
+        pnlPolicyLimit.Size = New Size(586, 46)
         pnlPolicyLimit.TabIndex = 3
         ' 
-        ' txtPolicyLimit
+        ' cmbPolicyLimit
         ' 
-        txtPolicyLimit.BorderStyle = BorderStyle.None
-        txtPolicyLimit.CharacterCasing = CharacterCasing.Upper
-        txtPolicyLimit.Font = New Font("Segoe UI", 12F)
-        txtPolicyLimit.Location = New Point(3, 11)
-        txtPolicyLimit.Name = "txtPolicyLimit"
-        txtPolicyLimit.Size = New Size(275, 22)
-        txtPolicyLimit.TabIndex = 1
+        cmbPolicyLimit.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbPolicyLimit.FlatStyle = FlatStyle.Flat
+        cmbPolicyLimit.Font = New Font("Segoe UI", 12F)
+        cmbPolicyLimit.FormattingEnabled = True
+        cmbPolicyLimit.Items.AddRange(New Object() {"FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE FOR RICE; PHP 5000 PER HECTARE FOR CORN; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 0.50 PER KG; FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED", "FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED"})
+        cmbPolicyLimit.Location = New Point(3, 8)
+        cmbPolicyLimit.Name = "cmbPolicyLimit"
+        cmbPolicyLimit.Size = New Size(577, 29)
+        cmbPolicyLimit.TabIndex = 16
         ' 
         ' lblServiceName
         ' 
@@ -2204,7 +2175,7 @@ Partial Class frmPanelHolder
         lblServiceName.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
         lblServiceName.ForeColor = Color.DimGray
         lblServiceName.ImageAlign = ContentAlignment.MiddleLeft
-        lblServiceName.Location = New Point(21, 181)
+        lblServiceName.Location = New Point(21, 265)
         lblServiceName.Name = "lblServiceName"
         lblServiceName.Size = New Size(106, 19)
         lblServiceName.TabIndex = 2
@@ -2213,22 +2184,24 @@ Partial Class frmPanelHolder
         ' pnlServiceName
         ' 
         pnlServiceName.BorderStyle = BorderStyle.FixedSingle
-        pnlServiceName.Controls.Add(txtServiceName)
+        pnlServiceName.Controls.Add(cmbServiceName)
         pnlServiceName.ForeColor = Color.Black
-        pnlServiceName.Location = New Point(21, 205)
+        pnlServiceName.Location = New Point(21, 289)
         pnlServiceName.Name = "pnlServiceName"
-        pnlServiceName.Size = New Size(587, 46)
+        pnlServiceName.Size = New Size(283, 46)
         pnlServiceName.TabIndex = 1
         ' 
-        ' txtServiceName
+        ' cmbServiceName
         ' 
-        txtServiceName.BorderStyle = BorderStyle.None
-        txtServiceName.CharacterCasing = CharacterCasing.Upper
-        txtServiceName.Font = New Font("Segoe UI", 12F)
-        txtServiceName.Location = New Point(3, 11)
-        txtServiceName.Name = "txtServiceName"
-        txtServiceName.Size = New Size(579, 22)
-        txtServiceName.TabIndex = 0
+        cmbServiceName.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbServiceName.FlatStyle = FlatStyle.Flat
+        cmbServiceName.Font = New Font("Segoe UI", 12F)
+        cmbServiceName.FormattingEnabled = True
+        cmbServiceName.Items.AddRange(New Object() {"LAND PREPARATION SERVICE", "SOIL TILLING SERVICE", "FIELD EXCAVATION SERVICE", "RICE PLANTING SERVICE", "RICE HARVESTING SERVICE", "CORN HARVESTING SERVICE", "CORN SHELLING SERVICE", "GRAIN DRYING SERVICE"})
+        cmbServiceName.Location = New Point(-1, 9)
+        cmbServiceName.Name = "cmbServiceName"
+        cmbServiceName.Size = New Size(283, 29)
+        cmbServiceName.TabIndex = 16
         ' 
         ' lblServiceInformation
         ' 
@@ -2265,23 +2238,69 @@ Partial Class frmPanelHolder
         lblAddService.TabIndex = 5
         lblAddService.Text = "Add Service"
         ' 
-        ' ImagePolicy
+        ' service_id
         ' 
-        ImagePolicy.Image = CType(resources.GetObject("ImagePolicy.Image"), Image)
-        ImagePolicy.Location = New Point(677, 213)
-        ImagePolicy.Name = "ImagePolicy"
-        ImagePolicy.Size = New Size(644, 491)
-        ImagePolicy.SizeMode = PictureBoxSizeMode.StretchImage
-        ImagePolicy.TabIndex = 21
-        ImagePolicy.TabStop = False
+        service_id.DataPropertyName = "service_id"
+        service_id.HeaderText = "Service ID"
+        service_id.Name = "service_id"
+        service_id.ReadOnly = True
+        service_id.Width = 175
+        ' 
+        ' machinery_id
+        ' 
+        machinery_id.DataPropertyName = "machinery_id"
+        machinery_id.HeaderText = "Machinery ID"
+        machinery_id.Name = "machinery_id"
+        machinery_id.ReadOnly = True
+        machinery_id.Width = 175
+        ' 
+        ' service_name
+        ' 
+        service_name.DataPropertyName = "service_name"
+        service_name.HeaderText = "Service Name"
+        service_name.Name = "service_name"
+        service_name.ReadOnly = True
+        service_name.Width = 175
+        ' 
+        ' service_type
+        ' 
+        service_type.DataPropertyName = "service_type"
+        service_type.HeaderText = "Service Type"
+        service_type.Name = "service_type"
+        service_type.ReadOnly = True
+        service_type.Width = 175
+        ' 
+        ' service_description
+        ' 
+        service_description.DataPropertyName = "description"
+        service_description.HeaderText = "Description"
+        service_description.Name = "service_description"
+        service_description.ReadOnly = True
+        service_description.Width = 450
+        ' 
+        ' service_policy_limit
+        ' 
+        service_policy_limit.DataPropertyName = "policy_limit"
+        service_policy_limit.HeaderText = "Policy Limit"
+        service_policy_limit.Name = "service_policy_limit"
+        service_policy_limit.ReadOnly = True
+        service_policy_limit.Width = 250
+        ' 
+        ' employee_id
+        ' 
+        employee_id.DataPropertyName = "employee_id"
+        employee_id.HeaderText = "Employee ID"
+        employee_id.Name = "employee_id"
+        employee_id.ReadOnly = True
+        employee_id.Width = 150
         ' 
         ' frmPanelHolder
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1924, 1041)
-        Controls.Add(pnlCreateService)
         Controls.Add(pnlServices)
+        Controls.Add(pnlCreateService)
         Controls.Add(pnlRequests)
         Controls.Add(pnlCreateFarmer)
         Controls.Add(pnlFarmers)
@@ -2358,6 +2377,7 @@ Partial Class frmPanelHolder
         pnlFFullname.PerformLayout()
         pnlCreateService.ResumeLayout(False)
         pnlCreateService.PerformLayout()
+        CType(ImagePolicy, ComponentModel.ISupportInitialize).EndInit()
         CType(imgRental, ComponentModel.ISupportInitialize).EndInit()
         pnlServiceInfo.ResumeLayout(False)
         pnlServiceInfo.PerformLayout()
@@ -2369,10 +2389,7 @@ Partial Class frmPanelHolder
         pnlServiceDescription.PerformLayout()
         pnlServiceType.ResumeLayout(False)
         pnlPolicyLimit.ResumeLayout(False)
-        pnlPolicyLimit.PerformLayout()
         pnlServiceName.ResumeLayout(False)
-        pnlServiceName.PerformLayout()
-        CType(ImagePolicy, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -2527,7 +2544,7 @@ Partial Class frmPanelHolder
     Friend WithEvents cmbServiceType As ComboBox
     Friend WithEvents lblSEmployeeID As Label
     Friend WithEvents pnlSEmployee As Panel
-    Friend WithEvents cmbSEmployeeID As ComboBox
+    Friend WithEvents cmbEmployeeID As ComboBox
     Friend WithEvents lblServiceMainDir As Label
     Friend WithEvents lblServiceSubDir As Label
     Friend WithEvents pnlServiceInfo As Panel
@@ -2562,21 +2579,22 @@ Partial Class frmPanelHolder
     Friend WithEvents pnlPolicyLimit As Panel
     Friend WithEvents lblServiceName As Label
     Friend WithEvents pnlServiceName As Panel
-    Friend WithEvents txtServiceName As TextBox
     Friend WithEvents lblServiceInformation As Label
     Friend WithEvents lblAddServiceSubtitle As Label
     Friend WithEvents lblAddService As Label
+    Friend WithEvents imgRental As PictureBox
+    Friend WithEvents ImagePolicy As PictureBox
+    Friend WithEvents lblMachineID As Label
+    Friend WithEvents pnlMachineryId As Panel
+    Friend WithEvents cmbMachineryID As ComboBox
+    Friend WithEvents cmbServiceName As ComboBox
+    Friend WithEvents cmbPolicyLimit As ComboBox
     Friend WithEvents service_id As DataGridViewTextBoxColumn
+    Friend WithEvents machinery_id As DataGridViewTextBoxColumn
     Friend WithEvents service_name As DataGridViewTextBoxColumn
     Friend WithEvents service_type As DataGridViewTextBoxColumn
     Friend WithEvents service_description As DataGridViewTextBoxColumn
     Friend WithEvents service_policy_limit As DataGridViewTextBoxColumn
     Friend WithEvents employee_id As DataGridViewTextBoxColumn
-    Friend WithEvents txtPolicyLimit As TextBox
-    Friend WithEvents imgRental As PictureBox
-    Friend WithEvents lblMachineID As Label
-    Friend WithEvents pnlMachineryId As Panel
-    Friend WithEvents cmbMachineryID As ComboBox
-    Friend WithEvents ImagePolicy As PictureBox
 
 End Class
