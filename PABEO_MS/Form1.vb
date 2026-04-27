@@ -145,9 +145,11 @@ Public Class frmPanelHolder
 
     Public Sub LoadFarmersGrid()
         Try
-            Dim sql As String = "SELECT CONCAT('RSBSA-', LPAD(farmer_id, 4, '0')) AS formatted_id, " &
-                               "full_name, residence_address, contact_number, classification, registration_status " &
-                               "FROM farmer ORDER BY created_at DESC"
+            ' ADD farmer_id to the SELECT list so the grid can find it
+            Dim sql As String = "SELECT farmer_id, " &
+                            "CONCAT('RSBSA-', LPAD(farmer_id, 4, '0')) AS formatted_id, " &
+                            "full_name, residence_address, contact_number, classification, registration_status " &
+                            "FROM farmer ORDER BY created_at DESC"
 
             readqueary(sql)
 
@@ -159,7 +161,6 @@ Public Class frmPanelHolder
                 dgvFarmers.DataSource = dt
 
                 dgvFarmers.AllowUserToAddRows = False
-                ' This only forces the text color, not the background/selection colors
                 dgvFarmers.DefaultCellStyle.ForeColor = Color.Black
             End If
 
@@ -657,5 +658,44 @@ Public Class frmPanelHolder
 
     Private Sub cmbPolicyLimit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPolicyLimit.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub dgvFarmers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvFarmers.CellClick
+        ' 1. Check for the Delete column click
+        If e.RowIndex >= 0 AndAlso dgvFarmers.Columns(e.ColumnIndex).Name = "FarmerDelete" Then
+
+            Try
+                ' 2. Using your exact confirmed small-caps identifiers
+                Dim pidCell = dgvFarmers.Rows(e.RowIndex).Cells("farmer_id").Value
+                Dim nameCell = dgvFarmers.Rows(e.RowIndex).Cells("full_name").Value
+
+                ' 3. Check if the cell has data
+                If pidCell IsNot Nothing AndAlso Not IsDBNull(pidCell) Then
+
+                    Dim fName As String = nameCell.ToString()
+                    Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete " & fName & "?",
+                                                             "Confirm Deletion",
+                                                             MessageBoxButtons.YesNo,
+                                                             MessageBoxIcon.Warning)
+
+                    If result = DialogResult.Yes Then
+                        ' 4. SQL Execution using the numeric ID
+                        Dim sql As String = "DELETE FROM farmer WHERE farmer_id = " & Val(pidCell.ToString())
+                        readqueary(sql)
+
+                        MessageBox.Show("Farmer deleted successfully.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        ' 5. Refresh the grid immediately
+                        LoadFarmersGrid()
+                    End If
+                Else
+                    ' If this shows, your LoadFarmersGrid() query might not be selecting farmer_id
+                    MessageBox.Show("The system found the column but it's empty. Try restarting the app.", "PABEO")
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Logic Error: " & ex.Message)
+            End Try
+        End If
     End Sub
 End Class

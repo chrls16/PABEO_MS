@@ -219,7 +219,7 @@ Partial Class mdiPABEO
         ' 
         ' pnlForms
         ' 
-        pnlForms.Location = New Point(268, 67)
+        pnlForms.Location = New Point(268, 68)
         pnlForms.Name = "pnlForms"
         pnlForms.Size = New Size(1644, 993)
         pnlForms.TabIndex = 12

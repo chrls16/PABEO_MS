@@ -27,7 +27,6 @@ Partial Class frmPanelHolder
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -37,6 +36,7 @@ Partial Class frmPanelHolder
         Dim DataGridViewCellStyle13 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         pnlConfig = New Panel()
         pnlConfigForm = New Panel()
         txtUID = New TextBox()
@@ -57,14 +57,6 @@ Partial Class frmPanelHolder
         btnFarmerExport = New Button()
         pnlFarmersDataGrid = New Panel()
         dgvFarmers = New DataGridView()
-        formatted_id = New DataGridViewTextBoxColumn()
-        full_name = New DataGridViewTextBoxColumn()
-        residence_address = New DataGridViewTextBoxColumn()
-        contact_number = New DataGridViewTextBoxColumn()
-        classification = New DataGridViewTextBoxColumn()
-        registration_status = New DataGridViewTextBoxColumn()
-        FarmerEdit = New DataGridViewImageColumn()
-        FarmerDelete = New DataGridViewImageColumn()
         pnlFarmersSearch = New Panel()
         txtFarmersSearch = New TextBox()
         btnSearch = New Button()
@@ -82,6 +74,13 @@ Partial Class frmPanelHolder
         btExportServiceReport = New Button()
         pnlDGVService = New Panel()
         dgvServices = New DataGridView()
+        service_id = New DataGridViewTextBoxColumn()
+        machinery_id = New DataGridViewTextBoxColumn()
+        service_name = New DataGridViewTextBoxColumn()
+        service_type = New DataGridViewTextBoxColumn()
+        service_description = New DataGridViewTextBoxColumn()
+        service_policy_limit = New DataGridViewTextBoxColumn()
+        employee_id = New DataGridViewTextBoxColumn()
         pnlSearchService = New Panel()
         txtServiceSearch = New TextBox()
         btnServiceSearch = New Button()
@@ -203,13 +202,15 @@ Partial Class frmPanelHolder
         lblServiceInformation = New Label()
         lblAddServiceSubtitle = New Label()
         lblAddService = New Label()
-        service_id = New DataGridViewTextBoxColumn()
-        machinery_id = New DataGridViewTextBoxColumn()
-        service_name = New DataGridViewTextBoxColumn()
-        service_type = New DataGridViewTextBoxColumn()
-        service_description = New DataGridViewTextBoxColumn()
-        service_policy_limit = New DataGridViewTextBoxColumn()
-        employee_id = New DataGridViewTextBoxColumn()
+        farmer_id = New DataGridViewTextBoxColumn()
+        formatted_id = New DataGridViewTextBoxColumn()
+        full_name = New DataGridViewTextBoxColumn()
+        residence_address = New DataGridViewTextBoxColumn()
+        contact_number = New DataGridViewTextBoxColumn()
+        classification = New DataGridViewTextBoxColumn()
+        registration_status = New DataGridViewTextBoxColumn()
+        FarmerEdit = New DataGridViewImageColumn()
+        FarmerDelete = New DataGridViewImageColumn()
         pnlConfig.SuspendLayout()
         pnlConfigForm.SuspendLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -504,7 +505,7 @@ Partial Class frmPanelHolder
         dgvFarmers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvFarmers.ColumnHeadersHeight = 50
         dgvFarmers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        dgvFarmers.Columns.AddRange(New DataGridViewColumn() {formatted_id, full_name, residence_address, contact_number, classification, registration_status, FarmerEdit, FarmerDelete})
+        dgvFarmers.Columns.AddRange(New DataGridViewColumn() {farmer_id, formatted_id, full_name, residence_address, contact_number, classification, registration_status, FarmerEdit, FarmerDelete})
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle4.BackColor = SystemColors.Window
         DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
@@ -535,67 +536,6 @@ Partial Class frmPanelHolder
         dgvFarmers.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvFarmers.Size = New Size(1559, 428)
         dgvFarmers.TabIndex = 5
-        ' 
-        ' formatted_id
-        ' 
-        formatted_id.DataPropertyName = "formatted_id"
-        formatted_id.HeaderText = "Farmer ID"
-        formatted_id.Name = "formatted_id"
-        formatted_id.Width = 225
-        ' 
-        ' full_name
-        ' 
-        full_name.DataPropertyName = "full_name"
-        full_name.HeaderText = "Full Name"
-        full_name.Name = "full_name"
-        full_name.Width = 300
-        ' 
-        ' residence_address
-        ' 
-        residence_address.DataPropertyName = "residence_address"
-        residence_address.HeaderText = "Address"
-        residence_address.Name = "residence_address"
-        residence_address.Width = 325
-        ' 
-        ' contact_number
-        ' 
-        contact_number.DataPropertyName = "contact_number"
-        contact_number.HeaderText = "ContactNumber"
-        contact_number.Name = "contact_number"
-        contact_number.Width = 200
-        ' 
-        ' classification
-        ' 
-        classification.DataPropertyName = "classification"
-        classification.HeaderText = "Classification"
-        classification.Name = "classification"
-        classification.Width = 200
-        ' 
-        ' registration_status
-        ' 
-        registration_status.DataPropertyName = "registration_status"
-        registration_status.HeaderText = "Status"
-        registration_status.Name = "registration_status"
-        registration_status.Width = 150
-        ' 
-        ' FarmerEdit
-        ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.NullValue = "None"
-        FarmerEdit.DefaultCellStyle = DataGridViewCellStyle3
-        FarmerEdit.HeaderText = "Edit"
-        FarmerEdit.Image = CType(resources.GetObject("FarmerEdit.Image"), Image)
-        FarmerEdit.Name = "FarmerEdit"
-        FarmerEdit.Resizable = DataGridViewTriState.True
-        FarmerEdit.SortMode = DataGridViewColumnSortMode.Automatic
-        FarmerEdit.Width = 75
-        ' 
-        ' FarmerDelete
-        ' 
-        FarmerDelete.HeaderText = "Delete"
-        FarmerDelete.Image = CType(resources.GetObject("FarmerDelete.Image"), Image)
-        FarmerDelete.Name = "FarmerDelete"
-        FarmerDelete.Width = 75
         ' 
         ' pnlFarmersSearch
         ' 
@@ -835,6 +775,62 @@ Partial Class frmPanelHolder
         dgvServices.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvServices.Size = New Size(1559, 428)
         dgvServices.TabIndex = 5
+        ' 
+        ' service_id
+        ' 
+        service_id.DataPropertyName = "service_id"
+        service_id.HeaderText = "Service ID"
+        service_id.Name = "service_id"
+        service_id.ReadOnly = True
+        service_id.Width = 175
+        ' 
+        ' machinery_id
+        ' 
+        machinery_id.DataPropertyName = "machinery_id"
+        machinery_id.HeaderText = "Machinery ID"
+        machinery_id.Name = "machinery_id"
+        machinery_id.ReadOnly = True
+        machinery_id.Width = 175
+        ' 
+        ' service_name
+        ' 
+        service_name.DataPropertyName = "service_name"
+        service_name.HeaderText = "Service Name"
+        service_name.Name = "service_name"
+        service_name.ReadOnly = True
+        service_name.Width = 175
+        ' 
+        ' service_type
+        ' 
+        service_type.DataPropertyName = "service_type"
+        service_type.HeaderText = "Service Type"
+        service_type.Name = "service_type"
+        service_type.ReadOnly = True
+        service_type.Width = 175
+        ' 
+        ' service_description
+        ' 
+        service_description.DataPropertyName = "description"
+        service_description.HeaderText = "Description"
+        service_description.Name = "service_description"
+        service_description.ReadOnly = True
+        service_description.Width = 450
+        ' 
+        ' service_policy_limit
+        ' 
+        service_policy_limit.DataPropertyName = "policy_limit"
+        service_policy_limit.HeaderText = "Policy Limit"
+        service_policy_limit.Name = "service_policy_limit"
+        service_policy_limit.ReadOnly = True
+        service_policy_limit.Width = 250
+        ' 
+        ' employee_id
+        ' 
+        employee_id.DataPropertyName = "employee_id"
+        employee_id.HeaderText = "Employee ID"
+        employee_id.Name = "employee_id"
+        employee_id.ReadOnly = True
+        employee_id.Width = 150
         ' 
         ' pnlSearchService
         ' 
@@ -2238,72 +2234,85 @@ Partial Class frmPanelHolder
         lblAddService.TabIndex = 5
         lblAddService.Text = "Add Service"
         ' 
-        ' service_id
+        ' farmer_id
         ' 
-        service_id.DataPropertyName = "service_id"
-        service_id.HeaderText = "Service ID"
-        service_id.Name = "service_id"
-        service_id.ReadOnly = True
-        service_id.Width = 175
+        farmer_id.DataPropertyName = "farmer_id"
+        farmer_id.HeaderText = "ID"
+        farmer_id.Name = "farmer_id"
+        farmer_id.Visible = False
         ' 
-        ' machinery_id
+        ' formatted_id
         ' 
-        machinery_id.DataPropertyName = "machinery_id"
-        machinery_id.HeaderText = "Machinery ID"
-        machinery_id.Name = "machinery_id"
-        machinery_id.ReadOnly = True
-        machinery_id.Width = 175
+        formatted_id.DataPropertyName = "formatted_id"
+        formatted_id.HeaderText = "Farmer ID"
+        formatted_id.Name = "formatted_id"
+        formatted_id.Width = 225
         ' 
-        ' service_name
+        ' full_name
         ' 
-        service_name.DataPropertyName = "service_name"
-        service_name.HeaderText = "Service Name"
-        service_name.Name = "service_name"
-        service_name.ReadOnly = True
-        service_name.Width = 175
+        full_name.DataPropertyName = "full_name"
+        full_name.HeaderText = "Full Name"
+        full_name.Name = "full_name"
+        full_name.Width = 300
         ' 
-        ' service_type
+        ' residence_address
         ' 
-        service_type.DataPropertyName = "service_type"
-        service_type.HeaderText = "Service Type"
-        service_type.Name = "service_type"
-        service_type.ReadOnly = True
-        service_type.Width = 175
+        residence_address.DataPropertyName = "residence_address"
+        residence_address.HeaderText = "Address"
+        residence_address.Name = "residence_address"
+        residence_address.Width = 325
         ' 
-        ' service_description
+        ' contact_number
         ' 
-        service_description.DataPropertyName = "description"
-        service_description.HeaderText = "Description"
-        service_description.Name = "service_description"
-        service_description.ReadOnly = True
-        service_description.Width = 450
+        contact_number.DataPropertyName = "contact_number"
+        contact_number.HeaderText = "ContactNumber"
+        contact_number.Name = "contact_number"
+        contact_number.Width = 200
         ' 
-        ' service_policy_limit
+        ' classification
         ' 
-        service_policy_limit.DataPropertyName = "policy_limit"
-        service_policy_limit.HeaderText = "Policy Limit"
-        service_policy_limit.Name = "service_policy_limit"
-        service_policy_limit.ReadOnly = True
-        service_policy_limit.Width = 250
+        classification.DataPropertyName = "classification"
+        classification.HeaderText = "Classification"
+        classification.Name = "classification"
+        classification.Width = 200
         ' 
-        ' employee_id
+        ' registration_status
         ' 
-        employee_id.DataPropertyName = "employee_id"
-        employee_id.HeaderText = "Employee ID"
-        employee_id.Name = "employee_id"
-        employee_id.ReadOnly = True
-        employee_id.Width = 150
+        registration_status.DataPropertyName = "registration_status"
+        registration_status.HeaderText = "Status"
+        registration_status.Name = "registration_status"
+        registration_status.Width = 150
+        ' 
+        ' FarmerEdit
+        ' 
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = "None"
+        FarmerEdit.DefaultCellStyle = DataGridViewCellStyle3
+        FarmerEdit.HeaderText = "Edit"
+        FarmerEdit.Image = CType(resources.GetObject("FarmerEdit.Image"), Image)
+        FarmerEdit.Name = "FarmerEdit"
+        FarmerEdit.Resizable = DataGridViewTriState.True
+        FarmerEdit.SortMode = DataGridViewColumnSortMode.Automatic
+        FarmerEdit.Width = 75
+        ' 
+        ' FarmerDelete
+        ' 
+        FarmerDelete.DataPropertyName = "FarmerDelete"
+        FarmerDelete.HeaderText = "Delete"
+        FarmerDelete.Image = CType(resources.GetObject("FarmerDelete.Image"), Image)
+        FarmerDelete.Name = "FarmerDelete"
+        FarmerDelete.Width = 75
         ' 
         ' frmPanelHolder
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1924, 1041)
-        Controls.Add(pnlServices)
+        Controls.Add(pnlFarmers)
         Controls.Add(pnlCreateService)
+        Controls.Add(pnlServices)
         Controls.Add(pnlRequests)
         Controls.Add(pnlCreateFarmer)
-        Controls.Add(pnlFarmers)
         Controls.Add(pnlOperator)
         Controls.Add(pnlMachinery)
         Controls.Add(pnlEmployee)
@@ -2485,14 +2494,6 @@ Partial Class frmPanelHolder
     Friend WithEvents pnlRegStatus As Panel
     Friend WithEvents cmbRegStatus As ComboBox
     Friend WithEvents lblRegStatus As Label
-    Friend WithEvents formatted_id As DataGridViewTextBoxColumn
-    Friend WithEvents full_name As DataGridViewTextBoxColumn
-    Friend WithEvents residence_address As DataGridViewTextBoxColumn
-    Friend WithEvents contact_number As DataGridViewTextBoxColumn
-    Friend WithEvents classification As DataGridViewTextBoxColumn
-    Friend WithEvents registration_status As DataGridViewTextBoxColumn
-    Friend WithEvents FarmerEdit As DataGridViewImageColumn
-    Friend WithEvents FarmerDelete As DataGridViewImageColumn
     Friend WithEvents lblRequestsDir As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
@@ -2596,5 +2597,14 @@ Partial Class frmPanelHolder
     Friend WithEvents service_description As DataGridViewTextBoxColumn
     Friend WithEvents service_policy_limit As DataGridViewTextBoxColumn
     Friend WithEvents employee_id As DataGridViewTextBoxColumn
+    Friend WithEvents farmer_id As DataGridViewTextBoxColumn
+    Friend WithEvents formatted_id As DataGridViewTextBoxColumn
+    Friend WithEvents full_name As DataGridViewTextBoxColumn
+    Friend WithEvents residence_address As DataGridViewTextBoxColumn
+    Friend WithEvents contact_number As DataGridViewTextBoxColumn
+    Friend WithEvents classification As DataGridViewTextBoxColumn
+    Friend WithEvents registration_status As DataGridViewTextBoxColumn
+    Friend WithEvents FarmerEdit As DataGridViewImageColumn
+    Friend WithEvents FarmerDelete As DataGridViewImageColumn
 
 End Class
