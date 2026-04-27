@@ -20,6 +20,10 @@ Public Class frmPanelHolder
     Private txtOperatorSearch As TextBox
     Private txtEmployeeSearch As TextBox
     Private txtStationSearch As TextBox
+    Public pnlReports As New Panel
+    Private cmbReportTable As ComboBox
+    Private btnServiceEditTop As Button
+    Private btnServiceDeleteTop As Button
 
     Private Sub pnlConfig_Paint(sender As Object, e As PaintEventArgs) Handles pnlConfig.Paint
     End Sub
@@ -77,6 +81,7 @@ Public Class frmPanelHolder
 
         LoadServicesGrid()
         RefreshServiceStats()
+        EnsureServiceTopActionButtons()
         ConfigureRequestsGridColumns()
         LoadRequestsGrid()
         LoadMachineryGrid()
@@ -85,6 +90,7 @@ Public Class frmPanelHolder
         BuildManagementPanelUI(pnlOperator, "Operator Management", "P.A.B.E.O. operator records and assignments", "operator")
         BuildManagementPanelUI(pnlEmployee, "Employee Management", "P.A.B.E.O. employee records", "employee")
         BuildManagementPanelUI(pnlStation, "Station Management", "P.A.B.E.O. station records", "station")
+        BuildReportsPanel()
         LoadMachineryCrudGrid()
         LoadOperatorGrid()
         LoadEmployeeGrid()
@@ -507,7 +513,7 @@ Public Class frmPanelHolder
         Try
             ' We use SRV- and pad the ID to 4 digits (e.g., SRV-0001)
             Dim sql As String = "SELECT CONCAT('SRV-', LPAD(service_id, 4, '0')) AS service_id, " &
-                           "machinery_id, service_name, service_type, description AS service_description, policy_limit AS service_policy_limit, employee_id " &
+                           "machinery_id, service_name, service_type, description, policy_limit, employee_id " &
                            "FROM service ORDER BY service_id DESC"
 
             readqueary(sql)
@@ -518,6 +524,7 @@ Public Class frmPanelHolder
 
                 dgvServices.AutoGenerateColumns = False
                 dgvServices.DataSource = dt
+                EnsureServiceActionColumns()
 
                 dgvServices.AllowUserToAddRows = False
                 dgvServices.DefaultCellStyle.ForeColor = Color.Black
@@ -650,7 +657,7 @@ Public Class frmPanelHolder
 
             ' Pull fresh data from the singular 'service' table
             Dim sql As String = "SELECT CONCAT('SRV-', LPAD(service_id, 4, '0')) AS service_id, " &
-                                "machinery_id, service_name, service_type, description AS service_description, policy_limit AS service_policy_limit, employee_id " &
+                                "machinery_id, service_name, service_type, description, policy_limit, employee_id " &
                                 "FROM service ORDER BY service_id DESC"
             readqueary(sql)
 
@@ -660,10 +667,182 @@ Public Class frmPanelHolder
             ' Ensure the grid doesn't create extra columns
             dgvServices.AutoGenerateColumns = False
             dgvServices.DataSource = dt
+            EnsureServiceActionColumns()
             lblTotalServices.Text = dt.Rows.Count.ToString("00")
 
         Catch ex As Exception
             ' Optional: Silently handle errors or log them
+        End Try
+    End Sub
+
+    Private Sub EnsureServiceActionColumns()
+        If Not dgvServices.Columns.Contains("ServiceEdit") Then
+            Dim colEdit As New DataGridViewImageColumn With {
+                .Name = "ServiceEdit",
+                .HeaderText = "Edit",
+                .Image = FarmerEdit.Image,
+                .Width = 75
+            }
+            dgvServices.Columns.Add(colEdit)
+        End If
+
+        If Not dgvServices.Columns.Contains("ServiceDelete") Then
+            Dim colDelete As New DataGridViewImageColumn With {
+                .Name = "ServiceDelete",
+                .HeaderText = "Delete",
+                .Image = FarmerDelete.Image,
+                .Width = 75
+            }
+            dgvServices.Columns.Add(colDelete)
+        End If
+    End Sub
+
+    Private Sub EnsureServiceTopActionButtons()
+        If btnServiceEditTop Is Nothing Then
+            btnServiceEditTop = New Button With {
+                .Name = "btnServiceEditTop",
+                .Text = "Edit",
+                .BackColor = Color.White,
+                .FlatStyle = FlatStyle.Flat,
+                .Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold),
+                .ImageAlign = ContentAlignment.MiddleLeft,
+                .Location = New Point(1167, 410),
+                .Size = New Size(147, 37)
+            }
+            btnServiceEditTop.FlatAppearance.BorderColor = Color.Silver
+            AddHandler btnServiceEditTop.Click, AddressOf btnServiceEditTop_Click
+            pnlServices.Controls.Add(btnServiceEditTop)
+            btnServiceEditTop.BringToFront()
+        End If
+
+        If btnServiceDeleteTop Is Nothing Then
+            btnServiceDeleteTop = New Button With {
+                .Name = "btnServiceDeleteTop",
+                .Text = "Delete",
+                .BackColor = Color.White,
+                .FlatStyle = FlatStyle.Flat,
+                .Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold),
+                .ImageAlign = ContentAlignment.MiddleLeft,
+                .Location = New Point(1014, 410),
+                .Size = New Size(147, 37)
+            }
+            btnServiceDeleteTop.FlatAppearance.BorderColor = Color.Silver
+            AddHandler btnServiceDeleteTop.Click, AddressOf btnServiceDeleteTop_Click
+            pnlServices.Controls.Add(btnServiceDeleteTop)
+            btnServiceDeleteTop.BringToFront()
+        End If
+    End Sub
+
+    Private Sub btnServiceEditTop_Click(sender As Object, e As EventArgs)
+        If dgvServices.CurrentRow Is Nothing Then
+            MessageBox.Show("Please select a service row first.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+        EditServiceRow(dgvServices.CurrentRow.Index)
+    End Sub
+
+    Private Sub btnServiceDeleteTop_Click(sender As Object, e As EventArgs)
+        If dgvServices.CurrentRow Is Nothing Then
+            MessageBox.Show("Please select a service row first.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+        DeleteServiceRow(dgvServices.CurrentRow.Index)
+    End Sub
+
+    Private Sub dgvServices_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvServices.CellClick
+        If e.RowIndex < 0 Then Return
+        Dim colName As String = dgvServices.Columns(e.ColumnIndex).Name
+        If colName = "ServiceEdit" Then
+            EditServiceRow(e.RowIndex)
+        ElseIf colName = "ServiceDelete" Then
+            DeleteServiceRow(e.RowIndex)
+        End If
+    End Sub
+
+    Private Sub EditServiceRow(rowIndex As Integer)
+        Try
+            Dim row = dgvServices.Rows(rowIndex)
+            Dim servicePk As Integer = ExtractNumericId(Convert.ToString(row.Cells("service_id").Value))
+            If servicePk <= 0 Then
+                MessageBox.Show("Invalid service ID.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            Dim frm As New Form With {
+                .Text = "Edit Service",
+                .StartPosition = FormStartPosition.CenterParent,
+                .FormBorderStyle = FormBorderStyle.FixedDialog,
+                .ClientSize = New Size(520, 360),
+                .MaximizeBox = False,
+                .MinimizeBox = False
+            }
+
+            Dim lblName As New Label With {.Text = "Service Name", .Location = New Point(20, 20), .AutoSize = True}
+            Dim txtName As New TextBox With {.Location = New Point(20, 40), .Width = 470, .Text = Convert.ToString(row.Cells("service_name").Value)}
+
+            Dim lblType As New Label With {.Text = "Service Type", .Location = New Point(20, 80), .AutoSize = True}
+            Dim txtType As New TextBox With {.Location = New Point(20, 100), .Width = 220, .Text = Convert.ToString(row.Cells("service_type").Value)}
+
+            Dim lblMach As New Label With {.Text = "Machinery ID", .Location = New Point(270, 80), .AutoSize = True}
+            Dim txtMach As New TextBox With {.Location = New Point(270, 100), .Width = 220, .Text = Convert.ToString(row.Cells("machinery_id").Value)}
+
+            Dim lblDesc As New Label With {.Text = "Description", .Location = New Point(20, 140), .AutoSize = True}
+            Dim txtDesc As New TextBox With {.Location = New Point(20, 160), .Width = 470, .Height = 70, .Multiline = True, .Text = Convert.ToString(row.Cells("service_description").Value)}
+
+            Dim lblPolicy As New Label With {.Text = "Policy Limit", .Location = New Point(20, 240), .AutoSize = True}
+            Dim txtPolicy As New TextBox With {.Location = New Point(20, 260), .Width = 360, .Text = Convert.ToString(row.Cells("service_policy_limit").Value)}
+
+            Dim lblEmp As New Label With {.Text = "Employee ID", .Location = New Point(390, 240), .AutoSize = True}
+            Dim txtEmp As New TextBox With {.Location = New Point(390, 260), .Width = 100, .Text = Convert.ToString(row.Cells("employee_id").Value)}
+
+            Dim btnSave As New Button With {.Text = "Save", .Location = New Point(410, 315), .Width = 80}
+            Dim btnCancel As New Button With {.Text = "Cancel", .Location = New Point(320, 315), .Width = 80}
+            frm.Controls.AddRange(New Control() {lblName, txtName, lblType, txtType, lblMach, txtMach, lblDesc, txtDesc, lblPolicy, txtPolicy, lblEmp, txtEmp, btnSave, btnCancel})
+            AddHandler btnCancel.Click, Sub() frm.Close()
+            AddHandler btnSave.Click,
+                Sub()
+                    Dim sql As String = "UPDATE service SET " &
+                                        "service_name=@name, service_type=@type, description=@desc, machinery_id=@mach, policy_limit=@policy, employee_id=@emp " &
+                                        "WHERE service_id=@id"
+                    Using localConn As New MySqlConnection("server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name)
+                        localConn.Open()
+                        Using c As New MySqlCommand(sql, localConn)
+                            c.Parameters.AddWithValue("@name", txtName.Text.Trim().ToUpper())
+                            c.Parameters.AddWithValue("@type", txtType.Text.Trim().ToUpper())
+                            c.Parameters.AddWithValue("@desc", txtDesc.Text.Trim().ToUpper())
+                            c.Parameters.AddWithValue("@mach", Val(txtMach.Text))
+                            c.Parameters.AddWithValue("@policy", txtPolicy.Text.Trim().ToUpper())
+                            c.Parameters.AddWithValue("@emp", Val(txtEmp.Text))
+                            c.Parameters.AddWithValue("@id", servicePk)
+                            c.ExecuteNonQuery()
+                        End Using
+                    End Using
+                    frm.Close()
+                    LoadServicesGrid()
+                End Sub
+            frm.ShowDialog(Me)
+        Catch ex As Exception
+            MessageBox.Show("Service edit failed: " & ex.Message, "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub DeleteServiceRow(rowIndex As Integer)
+        Try
+            If MessageBox.Show("Delete selected service?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) <> DialogResult.Yes Then Return
+            Dim row = dgvServices.Rows(rowIndex)
+            Dim servicePk As Integer = ExtractNumericId(Convert.ToString(row.Cells("service_id").Value))
+            If servicePk <= 0 Then Return
+
+            Using localConn As New MySqlConnection("server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name)
+                localConn.Open()
+                Using c As New MySqlCommand("DELETE FROM service WHERE service_id=@id", localConn)
+                    c.Parameters.AddWithValue("@id", servicePk)
+                    c.ExecuteNonQuery()
+                End Using
+            End Using
+            LoadServicesGrid()
+        Catch ex As Exception
+            MessageBox.Show("Service delete failed: " & ex.Message, "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -920,6 +1099,7 @@ Public Class frmPanelHolder
             Dim hasOperatorColumn As Boolean = ColumnExists("service_request", "operator_id")
             Dim sql As String =
                 "SELECT " &
+                "sr.request_id, sr.farmer_id, sr.service_id, " &
                 "CONCAT('RSBSA-', LPAD(sr.farmer_id, 4, '0')) AS farmer_display_id, " &
                 "CONCAT('SRV-', LPAD(sr.service_id, 4, '0')) AS service_display_id, " &
                 "sr.request_date, sr.farm_location, sr.hectares_served, sr.service_status " &
@@ -932,6 +1112,9 @@ Public Class frmPanelHolder
                 Dim dt As New DataTable
                 dt.Load(cmdread)
                 dgvRequests.DataSource = dt
+                If dgvRequests.Columns.Contains("request_id") Then dgvRequests.Columns("request_id").Visible = False
+                If dgvRequests.Columns.Contains("farmer_id") Then dgvRequests.Columns("farmer_id").Visible = False
+                If dgvRequests.Columns.Contains("service_id") Then dgvRequests.Columns("service_id").Visible = False
             End If
 
             RefreshRequestStats()
@@ -953,6 +1136,238 @@ Public Class frmPanelHolder
         Finally
             If cmdread IsNot Nothing Then cmdread.Close()
         End Try
+    End Sub
+
+    Private Sub dgvRequests_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRequests.CellClick
+        If e.RowIndex < 0 Then Return
+
+        Dim colName As String = dgvRequests.Columns(e.ColumnIndex).Name
+        If colName = "DataGridViewImageColumn1" Then
+            EditRequestRow(e.RowIndex)
+        ElseIf colName = "DataGridViewImageColumn2" Then
+            DeleteRequestRow(e.RowIndex)
+        End If
+    End Sub
+
+    Private Sub EditRequestRow(rowIndex As Integer)
+        Try
+            Dim row = dgvRequests.Rows(rowIndex)
+            Dim currentDate As Date = Date.Today
+            Date.TryParse(Convert.ToString(row.Cells(2).Value), currentDate)
+            Dim currentFarmLocation As String = Convert.ToString(row.Cells(3).Value)
+            Dim currentHectares As String = Convert.ToString(row.Cells(4).Value)
+            Dim currentStatus As String = Convert.ToString(row.Cells(5).Value)
+
+            Dim frm As New Form With {.Text = "Edit Request", .StartPosition = FormStartPosition.CenterParent, .FormBorderStyle = FormBorderStyle.FixedDialog, .ClientSize = New Size(420, 260), .MaximizeBox = False, .MinimizeBox = False}
+            Dim lblDate As New Label With {.Text = "Request Date", .Location = New Point(20, 20), .AutoSize = True}
+            Dim dtpDate As New DateTimePicker With {.Location = New Point(20, 40), .Width = 370, .Format = DateTimePickerFormat.Short, .Value = currentDate}
+            Dim lblLoc As New Label With {.Text = "Farm Location", .Location = New Point(20, 80), .AutoSize = True}
+            Dim txtLoc As New TextBox With {.Location = New Point(20, 100), .Width = 370, .Text = currentFarmLocation}
+            Dim lblHec As New Label With {.Text = "Hectares Served", .Location = New Point(20, 135), .AutoSize = True}
+            Dim txtHec As New TextBox With {.Location = New Point(20, 155), .Width = 170, .Text = currentHectares}
+            Dim lblStat As New Label With {.Text = "Service Status", .Location = New Point(220, 135), .AutoSize = True}
+            Dim cmbStat As New ComboBox With {.Location = New Point(220, 155), .Width = 170, .DropDownStyle = ComboBoxStyle.DropDownList}
+            cmbStat.Items.AddRange(New Object() {"Pending", "Approved", "Rejected"})
+            cmbStat.Text = currentStatus
+            Dim btnSave As New Button With {.Text = "Save", .Location = New Point(310, 210), .Width = 80}
+            Dim btnCancel As New Button With {.Text = "Cancel", .Location = New Point(220, 210), .Width = 80}
+            frm.Controls.AddRange(New Control() {lblDate, dtpDate, lblLoc, txtLoc, lblHec, txtHec, lblStat, cmbStat, btnSave, btnCancel})
+            AddHandler btnCancel.Click, Sub() frm.Close()
+
+            AddHandler btnSave.Click,
+                Sub()
+                    Dim hectaresValue As Decimal
+                    If Not Decimal.TryParse(txtHec.Text.Trim(), hectaresValue) Then
+                        MessageBox.Show("Invalid hectares value.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+
+                    Dim requestId As Integer = 0
+                    If dgvRequests.Columns.Contains("request_id") AndAlso row.Cells("request_id").Value IsNot Nothing Then
+                        requestId = Val(row.Cells("request_id").Value.ToString())
+                    End If
+
+                    If requestId > 0 Then
+                        Dim sqlUpdate As String = "UPDATE service_request SET request_date=@request_date, farm_location=@farm_location, hectares_served=@hectares_served, service_status=@service_status WHERE request_id=@request_id"
+                        Using localConn As New MySqlConnection("server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name)
+                            localConn.Open()
+                            Using c As New MySqlCommand(sqlUpdate, localConn)
+                                c.Parameters.AddWithValue("@request_date", dtpDate.Value.Date)
+                                c.Parameters.AddWithValue("@farm_location", txtLoc.Text.Trim().ToUpper())
+                                c.Parameters.AddWithValue("@hectares_served", hectaresValue)
+                                c.Parameters.AddWithValue("@service_status", cmbStat.Text)
+                                c.Parameters.AddWithValue("@request_id", requestId)
+                                c.ExecuteNonQuery()
+                            End Using
+                        End Using
+                    Else
+                        Dim farmerId As Integer = ExtractNumericId(Convert.ToString(row.Cells(0).Value))
+                        Dim serviceId As Integer = ExtractNumericId(Convert.ToString(row.Cells(1).Value))
+                        Dim oldDate As Date = currentDate
+                        Dim sqlUpdate As String = "UPDATE service_request SET request_date=@request_date, farm_location=@farm_location, hectares_served=@hectares_served, service_status=@service_status WHERE farmer_id=@farmer_id AND service_id=@service_id AND request_date=@old_date ORDER BY validation_date DESC LIMIT 1"
+                        Using localConn As New MySqlConnection("server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name)
+                            localConn.Open()
+                            Using c As New MySqlCommand(sqlUpdate, localConn)
+                                c.Parameters.AddWithValue("@request_date", dtpDate.Value.Date)
+                                c.Parameters.AddWithValue("@farm_location", txtLoc.Text.Trim().ToUpper())
+                                c.Parameters.AddWithValue("@hectares_served", hectaresValue)
+                                c.Parameters.AddWithValue("@service_status", cmbStat.Text)
+                                c.Parameters.AddWithValue("@farmer_id", farmerId)
+                                c.Parameters.AddWithValue("@service_id", serviceId)
+                                c.Parameters.AddWithValue("@old_date", oldDate.Date)
+                                c.ExecuteNonQuery()
+                            End Using
+                        End Using
+                    End If
+
+                    frm.Close()
+                    LoadRequestsGrid()
+                End Sub
+
+            frm.ShowDialog(Me)
+        Catch ex As Exception
+            MessageBox.Show("Request edit failed: " & ex.Message, "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub DeleteRequestRow(rowIndex As Integer)
+        Try
+            If MessageBox.Show("Delete selected request?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) <> DialogResult.Yes Then Return
+
+            Dim row = dgvRequests.Rows(rowIndex)
+            Dim requestId As Integer = 0
+            If dgvRequests.Columns.Contains("request_id") AndAlso row.Cells("request_id").Value IsNot Nothing Then
+                requestId = Val(row.Cells("request_id").Value.ToString())
+            End If
+
+            Using localConn As New MySqlConnection("server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name)
+                localConn.Open()
+                If requestId > 0 Then
+                    Using c As New MySqlCommand("DELETE FROM service_request WHERE request_id=@request_id", localConn)
+                        c.Parameters.AddWithValue("@request_id", requestId)
+                        c.ExecuteNonQuery()
+                    End Using
+                Else
+                    Dim farmerId As Integer = ExtractNumericId(Convert.ToString(row.Cells(0).Value))
+                    Dim serviceId As Integer = ExtractNumericId(Convert.ToString(row.Cells(1).Value))
+                    Dim reqDate As Date = Date.Today
+                    Date.TryParse(Convert.ToString(row.Cells(2).Value), reqDate)
+                    Using c As New MySqlCommand("DELETE FROM service_request WHERE farmer_id=@farmer_id AND service_id=@service_id AND request_date=@request_date ORDER BY validation_date DESC LIMIT 1", localConn)
+                        c.Parameters.AddWithValue("@farmer_id", farmerId)
+                        c.Parameters.AddWithValue("@service_id", serviceId)
+                        c.Parameters.AddWithValue("@request_date", reqDate.Date)
+                        c.ExecuteNonQuery()
+                    End Using
+                End If
+            End Using
+
+            LoadRequestsGrid()
+        Catch ex As Exception
+            MessageBox.Show("Request delete failed: " & ex.Message, "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function ExtractNumericId(displayId As String) As Integer
+        If String.IsNullOrWhiteSpace(displayId) Then Return 0
+        Dim digits = New String(displayId.Where(Function(ch) Char.IsDigit(ch)).ToArray())
+        Return Val(digits)
+    End Function
+
+    Private Sub BuildReportsPanel()
+        pnlReports.Controls.Clear()
+        pnlReports.Name = "pnlReports"
+        pnlReports.Size = New Size(1663, 1041)
+        pnlReports.BackColor = Color.FromArgb(245, 245, 245)
+
+        Dim lblDir As New Label With {.Text = "Reports", .Location = New Point(20, 25), .AutoSize = True, .Font = New Font("Segoe UI Semibold", 12, FontStyle.Bold), .ForeColor = SystemColors.ControlDark}
+        Dim lblHeader As New Label With {.Text = "Reports Management", .Location = New Point(15, 70), .AutoSize = True, .Font = New Font("Segoe UI", 30, FontStyle.Bold), .ForeColor = Color.Black}
+        Dim lblSubtitle As New Label With {.Text = "Export table data to Excel-compatible CSV", .Location = New Point(20, 125), .AutoSize = True, .Font = New Font("Segoe UI Semibold", 12, FontStyle.Bold), .ForeColor = SystemColors.ControlDarkDark}
+
+        Dim lblTable As New Label With {.Text = "Select Table", .Location = New Point(20, 210), .AutoSize = True, .Font = New Font("Segoe UI", 11, FontStyle.Bold)}
+        cmbReportTable = New ComboBox With {.Location = New Point(20, 235), .Width = 360, .DropDownStyle = ComboBoxStyle.DropDownList}
+        cmbReportTable.Items.AddRange(New Object() {"farmer", "service", "service_request", "machinery", "operator", "employee", "station"})
+        cmbReportTable.SelectedIndex = 0
+
+        Dim btnExport As New Button With {.Text = "Export to Excel (CSV)", .Location = New Point(390, 235), .Size = New Size(220, 37), .BackColor = Color.DarkGreen, .ForeColor = Color.White, .FlatStyle = FlatStyle.Flat}
+        btnExport.FlatAppearance.BorderSize = 0
+        AddHandler btnExport.Click, AddressOf ExportSelectedReportTable
+
+        pnlReports.Controls.AddRange(New Control() {lblDir, lblHeader, lblSubtitle, lblTable, cmbReportTable, btnExport})
+    End Sub
+
+    Private Sub ExportSelectedReportTable(sender As Object, e As EventArgs)
+        If cmbReportTable Is Nothing OrElse cmbReportTable.SelectedItem Is Nothing Then Return
+        ExportTableToCsv(cmbReportTable.SelectedItem.ToString())
+    End Sub
+
+    Private Sub ExportTableToCsv(tableName As String)
+        Try
+            Dim allowedTables As New HashSet(Of String)(StringComparer.OrdinalIgnoreCase) From {
+                "farmer", "service", "service_request", "machinery", "operator", "employee", "station"
+            }
+            If Not allowedTables.Contains(tableName) Then
+                MessageBox.Show("Invalid table selected for export.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            Dim sfd As New SaveFileDialog With {
+                .Filter = "CSV files (*.csv)|*.csv",
+                .FileName = tableName & "_" & Date.Now.ToString("yyyyMMdd_HHmmss") & ".csv"
+            }
+
+            If sfd.ShowDialog() <> DialogResult.OK Then Return
+
+            Dim strconn As String = "server=" & db_server & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name & ";Allow Zero Datetime=True;Convert Zero Datetime=False;"
+            Using localConn As New MySqlConnection(strconn)
+                localConn.Open()
+                Using cmdExport As New MySqlCommand("SELECT * FROM `" & tableName & "`", localConn)
+                    Using reader As MySqlDataReader = cmdExport.ExecuteReader()
+                        Using sw As New IO.StreamWriter(sfd.FileName, False, System.Text.Encoding.UTF8)
+                            ' Header
+                            Dim headers As New List(Of String)
+                            For i As Integer = 0 To reader.FieldCount - 1
+                                headers.Add("""" & reader.GetName(i).Replace("""", """""") & """")
+                            Next
+                            sw.WriteLine(String.Join(",", headers))
+
+                            ' Rows
+                            While reader.Read()
+                                Dim rowValues As New List(Of String)
+                                For i As Integer = 0 To reader.FieldCount - 1
+                                    Dim textValue As String = ""
+                                    If Not reader.IsDBNull(i) Then
+                                        Dim raw = reader.GetValue(i)
+                                        ' Keep zero-date values as literal text from provider.
+                                        textValue = Convert.ToString(raw)
+                                        If textValue = "0001-01-01 00:00:00" OrElse textValue = "0001-01-01" Then
+                                            textValue = ""
+                                        End If
+                                    End If
+                                    rowValues.Add("""" & textValue.Replace("""", """""") & """")
+                                Next
+                                sw.WriteLine(String.Join(",", rowValues))
+                            End While
+                        End Using
+                    End Using
+                End Using
+            End Using
+
+            MessageBox.Show("Export successful.", "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Export failed: " & ex.Message, "PABEO", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnFarmerExport_Click(sender As Object, e As EventArgs) Handles btnFarmerExport.Click
+        ExportTableToCsv("farmer")
+    End Sub
+
+    Private Sub btExportServiceReport_Click(sender As Object, e As EventArgs) Handles btExportServiceReport.Click
+        ExportTableToCsv("service")
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ExportTableToCsv("service_request")
     End Sub
 
     Private Sub LoadMachineryGrid()

@@ -1,6 +1,27 @@
 ﻿Imports System.Windows.Forms
 
 Public Class mdiPABEO
+    Private btnReports As Button
+
+    Private Sub mdiPABEO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If btnReports Is Nothing Then
+            btnReports = New Button With {
+                .Name = "btnReports",
+                .Text = "Reports",
+                .BackColor = Color.Transparent,
+                .FlatStyle = FlatStyle.Flat,
+                .ForeColor = Color.White,
+                .Font = New Font("Bahnschrift SemiBold", 12.75F, FontStyle.Bold),
+                .ImageAlign = ContentAlignment.MiddleLeft,
+                .Size = New Size(250, 60),
+                .Location = New Point(9, 657)
+            }
+            btnReports.FlatAppearance.BorderSize = 0
+            AddHandler btnReports.Click, AddressOf btnReports_Click
+            pnlSideNav.Controls.Add(btnReports)
+            btnReports.BringToFront()
+        End If
+    End Sub
     Private Sub mdiPABEO_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             Application.Exit()
@@ -56,6 +77,11 @@ Public Class mdiPABEO
     Private Sub btnStation_Click(sender As Object, e As EventArgs) Handles btnStation.Click
         SetActiveButton(sender)
         LoadPanelToMDI(frmPanelHolder.pnlStation, "Stations")
+    End Sub
+
+    Private Sub btnReports_Click(sender As Object, e As EventArgs)
+        SetActiveButton(DirectCast(sender, Button))
+        LoadPanelToMDI(frmPanelHolder.pnlReports, "Reports")
     End Sub
 
     Private Sub SetActiveButton(ByVal activeBtn As Button)
