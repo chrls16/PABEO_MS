@@ -1,7 +1,8 @@
-﻿Imports System.Windows.Forms
+Imports System.Windows.Forms
 
 Public Class mdiPABEO
     Private btnReports As Button
+    Private btnFlexibleSearch As Button
 
     Private Sub mdiPABEO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If btnReports Is Nothing Then
@@ -21,10 +22,52 @@ Public Class mdiPABEO
             pnlSideNav.Controls.Add(btnReports)
             btnReports.BringToFront()
         End If
+
+        If btnFlexibleSearch Is Nothing Then
+            btnFlexibleSearch = New Button With {
+                .Name = "btnFlexibleSearch",
+                .Text = "Flexible Search",
+                .BackColor = Color.Transparent,
+                .FlatStyle = FlatStyle.Flat,
+                .ForeColor = Color.White,
+                .Font = New Font("Bahnschrift SemiBold", 12.75F, FontStyle.Bold),
+                .ImageAlign = ContentAlignment.MiddleLeft,
+                .Size = New Size(250, 60),
+                .Location = New Point(9, 720) ' Placed below btnReports
+            }
+            btnFlexibleSearch.FlatAppearance.BorderSize = 0
+            AddHandler btnFlexibleSearch.Click, AddressOf btnFlexibleSearch_Click
+            pnlSideNav.Controls.Add(btnFlexibleSearch)
+            btnFlexibleSearch.BringToFront()
+        End If
     End Sub
-    Private Sub mdiPABEO_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If e.CloseReason = CloseReason.UserClosing Then
-            Application.Exit()
+    Private Sub mdiPABEO_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Environment.Exit(0)
+    End Sub
+
+    Public Sub ApplyRolePermissions(role As String)
+        If role = "employee" Then
+            btnServices.Enabled = False
+            btnMachinery.Enabled = False
+            btnOperator.Enabled = False
+            btnStation.Enabled = False
+            If btnReports IsNot Nothing Then btnReports.Enabled = False
+            If btnFlexibleSearch IsNot Nothing Then btnFlexibleSearch.Enabled = False
+            
+            btnEmployee.Enabled = True
+            btnFarmers.Enabled = True
+            btnRequests.Enabled = True
+        Else
+            btnServices.Enabled = True
+            btnMachinery.Enabled = True
+            btnOperator.Enabled = True
+            btnStation.Enabled = True
+            If btnReports IsNot Nothing Then btnReports.Enabled = True
+            If btnFlexibleSearch IsNot Nothing Then btnFlexibleSearch.Enabled = True
+            
+            btnEmployee.Enabled = True
+            btnFarmers.Enabled = True
+            btnRequests.Enabled = True
         End If
     End Sub
 
@@ -84,6 +127,11 @@ Public Class mdiPABEO
         LoadPanelToMDI(frmPanelHolder.pnlReports, "Reports")
     End Sub
 
+    Private Sub btnFlexibleSearch_Click(sender As Object, e As EventArgs)
+        SetActiveButton(DirectCast(sender, Button))
+        LoadPanelToMDI(frmPanelHolder.pnlFlexibleSearch, "Flexible Search")
+    End Sub
+
     Private Sub SetActiveButton(ByVal activeBtn As Button)
         Dim activeColor As Color = Color.MediumSeaGreen
         Dim defaultColor As Color = Color.Transparent
@@ -114,7 +162,6 @@ Public Class mdiPABEO
         frmPanelHolder.pnlConfig.Visible = True
         frmPanelHolder.pnlConfig.BringToFront()
 
-        RemoveHandler Me.FormClosing, AddressOf mdiPABEO_FormClosing
         Me.Hide()
     End Sub
 

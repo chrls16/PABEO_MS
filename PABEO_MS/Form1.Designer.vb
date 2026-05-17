@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmPanelHolder
     Inherits System.Windows.Forms.Form
 
@@ -23,20 +23,24 @@ Partial Class frmPanelHolder
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPanelHolder))
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As DataGridViewCellStyle = New DataGridViewCellStyle()
         pnlConfig = New Panel()
         pnlConfigForm = New Panel()
         txtUID = New TextBox()
@@ -54,9 +58,17 @@ Partial Class frmPanelHolder
         pnlFarmers = New Panel()
         lblMainDir = New Label()
         btnAddFarmer = New Button()
-        btnFarmerExport = New Button()
         pnlFarmersDataGrid = New Panel()
         dgvFarmers = New DataGridView()
+        farmer_id = New DataGridViewTextBoxColumn()
+        formatted_id = New DataGridViewTextBoxColumn()
+        full_name = New DataGridViewTextBoxColumn()
+        residence_address = New DataGridViewTextBoxColumn()
+        contact_number = New DataGridViewTextBoxColumn()
+        classification = New DataGridViewTextBoxColumn()
+        registration_status = New DataGridViewTextBoxColumn()
+        FarmerEdit = New DataGridViewImageColumn()
+        FarmerDelete = New DataGridViewImageColumn()
         pnlFarmersSearch = New Panel()
         txtFarmersSearch = New TextBox()
         btnSearch = New Button()
@@ -75,12 +87,12 @@ Partial Class frmPanelHolder
         pnlDGVService = New Panel()
         dgvServices = New DataGridView()
         service_id = New DataGridViewTextBoxColumn()
-        machinery_id = New DataGridViewTextBoxColumn()
+        machinery_name = New DataGridViewTextBoxColumn()
         service_name = New DataGridViewTextBoxColumn()
         service_type = New DataGridViewTextBoxColumn()
         service_description = New DataGridViewTextBoxColumn()
         service_policy_limit = New DataGridViewTextBoxColumn()
-        employee_id = New DataGridViewTextBoxColumn()
+        employee_name = New DataGridViewTextBoxColumn()
         pnlSearchService = New Panel()
         txtServiceSearch = New TextBox()
         btnServiceSearch = New Button()
@@ -92,6 +104,23 @@ Partial Class frmPanelHolder
         pnlOperator = New Panel()
         Label6 = New Label()
         pnlMachinery = New Panel()
+        LblMachinery = New Label()
+        Panel1 = New Panel()
+        Button4 = New Button()
+        Label4 = New Label()
+        HeaderMachinery = New Label()
+        Panel6 = New Panel()
+        MachineAmount = New Label()
+        Label13 = New Label()
+        btnAddMachinery = New Button()
+        Panel7 = New Panel()
+        dgvMachinery = New DataGridView()
+        formatted_machinery_id = New DataGridViewTextBoxColumn()
+        machine_name = New DataGridViewTextBoxColumn()
+        machinery_type = New DataGridViewTextBoxColumn()
+        station_id = New DataGridViewTextBoxColumn()
+        condition = New DataGridViewTextBoxColumn()
+        availability = New DataGridViewTextBoxColumn()
         Label3 = New Label()
         pnlRequests = New Panel()
         lblRequestsDir = New Label()
@@ -104,11 +133,11 @@ Partial Class frmPanelHolder
         DataGridViewTextBoxColumn3 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn4 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn5 = New DataGridViewTextBoxColumn()
-        DataGridViewTextBoxColumn6 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn6 = New DataGridViewComboBoxColumn()
         DataGridViewImageColumn1 = New DataGridViewImageColumn()
         DataGridViewImageColumn2 = New DataGridViewImageColumn()
         Panel2 = New Panel()
-        TextBox1 = New TextBox()
+        txtRequestSearch = New TextBox()
         Button3 = New Button()
         Label8 = New Label()
         lblRequestsHeader = New Label()
@@ -202,15 +231,7 @@ Partial Class frmPanelHolder
         lblServiceInformation = New Label()
         lblAddServiceSubtitle = New Label()
         lblAddService = New Label()
-        farmer_id = New DataGridViewTextBoxColumn()
-        formatted_id = New DataGridViewTextBoxColumn()
-        full_name = New DataGridViewTextBoxColumn()
-        residence_address = New DataGridViewTextBoxColumn()
-        contact_number = New DataGridViewTextBoxColumn()
-        classification = New DataGridViewTextBoxColumn()
-        registration_status = New DataGridViewTextBoxColumn()
-        FarmerEdit = New DataGridViewImageColumn()
-        FarmerDelete = New DataGridViewImageColumn()
+        BtnTestConection = New Button()
         pnlConfig.SuspendLayout()
         pnlConfigForm.SuspendLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -227,6 +248,10 @@ Partial Class frmPanelHolder
         pnlTotalService.SuspendLayout()
         pnlOperator.SuspendLayout()
         pnlMachinery.SuspendLayout()
+        Panel1.SuspendLayout()
+        Panel6.SuspendLayout()
+        Panel7.SuspendLayout()
+        CType(dgvMachinery, ComponentModel.ISupportInitialize).BeginInit()
         pnlRequests.SuspendLayout()
         pnlDGVRequests.SuspendLayout()
         CType(dgvRequests, ComponentModel.ISupportInitialize).BeginInit()
@@ -276,6 +301,7 @@ Partial Class frmPanelHolder
         ' pnlConfigForm
         ' 
         pnlConfigForm.BackColor = Color.FromArgb(CByte(200), CByte(2), CByte(48), CByte(32))
+        pnlConfigForm.Controls.Add(BtnTestConection)
         pnlConfigForm.Controls.Add(txtUID)
         pnlConfigForm.Controls.Add(btnConnect)
         pnlConfigForm.Controls.Add(lblUsername)
@@ -293,7 +319,7 @@ Partial Class frmPanelHolder
         ' txtUID
         ' 
         txtUID.BorderStyle = BorderStyle.FixedSingle
-        txtUID.Font = New Font("Segoe UI", 12F)
+        txtUID.Font = New Font("Segoe UI", 12.0F)
         txtUID.Location = New Point(213, 184)
         txtUID.Name = "txtUID"
         txtUID.Size = New Size(366, 29)
@@ -305,7 +331,7 @@ Partial Class frmPanelHolder
         btnConnect.BackColor = Color.DarkSeaGreen
         btnConnect.FlatAppearance.BorderSize = 0
         btnConnect.FlatStyle = FlatStyle.Flat
-        btnConnect.Font = New Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnConnect.Font = New Font("Arial", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnConnect.ForeColor = Color.White
         btnConnect.Location = New Point(585, 364)
         btnConnect.Name = "btnConnect"
@@ -329,7 +355,7 @@ Partial Class frmPanelHolder
         ' txtPWD
         ' 
         txtPWD.BorderStyle = BorderStyle.FixedSingle
-        txtPWD.Font = New Font("Segoe UI", 12F)
+        txtPWD.Font = New Font("Segoe UI", 12.0F)
         txtPWD.Location = New Point(213, 247)
         txtPWD.Name = "txtPWD"
         txtPWD.Size = New Size(366, 29)
@@ -375,7 +401,7 @@ Partial Class frmPanelHolder
         ' txtServer
         ' 
         txtServer.BorderStyle = BorderStyle.FixedSingle
-        txtServer.Font = New Font("Segoe UI", 12F)
+        txtServer.Font = New Font("Segoe UI", 12.0F)
         txtServer.Location = New Point(213, 56)
         txtServer.Name = "txtServer"
         txtServer.Size = New Size(366, 29)
@@ -385,7 +411,7 @@ Partial Class frmPanelHolder
         ' txtDatabase
         ' 
         txtDatabase.BorderStyle = BorderStyle.FixedSingle
-        txtDatabase.Font = New Font("Segoe UI", 12F)
+        txtDatabase.Font = New Font("Segoe UI", 12.0F)
         txtDatabase.Location = New Point(213, 120)
         txtDatabase.Name = "txtDatabase"
         txtDatabase.Size = New Size(366, 29)
@@ -420,7 +446,6 @@ Partial Class frmPanelHolder
         ' 
         pnlFarmers.Controls.Add(lblMainDir)
         pnlFarmers.Controls.Add(btnAddFarmer)
-        pnlFarmers.Controls.Add(btnFarmerExport)
         pnlFarmers.Controls.Add(pnlFarmersDataGrid)
         pnlFarmers.Controls.Add(pnlFarmersSearch)
         pnlFarmers.Controls.Add(pnlPendingValidation)
@@ -435,7 +460,7 @@ Partial Class frmPanelHolder
         ' lblMainDir
         ' 
         lblMainDir.AutoSize = True
-        lblMainDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblMainDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblMainDir.ForeColor = SystemColors.ControlDark
         lblMainDir.Location = New Point(19, 25)
         lblMainDir.Name = "lblMainDir"
@@ -449,7 +474,7 @@ Partial Class frmPanelHolder
         btnAddFarmer.BackgroundImageLayout = ImageLayout.None
         btnAddFarmer.FlatAppearance.BorderSize = 0
         btnAddFarmer.FlatStyle = FlatStyle.Flat
-        btnAddFarmer.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        btnAddFarmer.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         btnAddFarmer.ForeColor = Color.White
         btnAddFarmer.Image = CType(resources.GetObject("btnAddFarmer.Image"), Image)
         btnAddFarmer.ImageAlign = ContentAlignment.MiddleLeft
@@ -460,21 +485,6 @@ Partial Class frmPanelHolder
         btnAddFarmer.TabStop = False
         btnAddFarmer.Text = "Add Farmer"
         btnAddFarmer.UseVisualStyleBackColor = False
-        ' 
-        ' btnFarmerExport
-        ' 
-        btnFarmerExport.BackColor = Color.White
-        btnFarmerExport.FlatAppearance.BorderColor = Color.Silver
-        btnFarmerExport.FlatStyle = FlatStyle.Flat
-        btnFarmerExport.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnFarmerExport.Image = CType(resources.GetObject("btnFarmerExport.Image"), Image)
-        btnFarmerExport.ImageAlign = ContentAlignment.MiddleLeft
-        btnFarmerExport.Location = New Point(1320, 410)
-        btnFarmerExport.Name = "btnFarmerExport"
-        btnFarmerExport.Size = New Size(147, 37)
-        btnFarmerExport.TabIndex = 10
-        btnFarmerExport.Text = "Export"
-        btnFarmerExport.UseVisualStyleBackColor = False
         ' 
         ' pnlFarmersDataGrid
         ' 
@@ -488,45 +498,45 @@ Partial Class frmPanelHolder
         ' dgvFarmers
         ' 
         dgvFarmers.AllowUserToOrderColumns = True
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvFarmers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvFarmers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle19
         dgvFarmers.BackgroundColor = Color.White
         dgvFarmers.BorderStyle = BorderStyle.None
         dgvFarmers.CellBorderStyle = DataGridViewCellBorderStyle.None
         dgvFarmers.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
         dgvFarmers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = Color.White
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
-        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.ControlLight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvFarmers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle20.BackColor = Color.White
+        DataGridViewCellStyle20.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        DataGridViewCellStyle20.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle20.SelectionBackColor = SystemColors.ControlLight
+        DataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = DataGridViewTriState.True
+        dgvFarmers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
         dgvFarmers.ColumnHeadersHeight = 50
         dgvFarmers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         dgvFarmers.Columns.AddRange(New DataGridViewColumn() {farmer_id, formatted_id, full_name, residence_address, contact_number, classification, registration_status, FarmerEdit, FarmerDelete})
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = SystemColors.Window
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.ButtonFace
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
-        dgvFarmers.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle22.BackColor = SystemColors.Window
+        DataGridViewCellStyle22.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle22.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle22.SelectionBackColor = SystemColors.ButtonFace
+        DataGridViewCellStyle22.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle22.WrapMode = DataGridViewTriState.False
+        dgvFarmers.DefaultCellStyle = DataGridViewCellStyle22
         dgvFarmers.EnableHeadersVisualStyles = False
         dgvFarmers.GridColor = Color.White
         dgvFarmers.Location = New Point(15, 12)
         dgvFarmers.Name = "dgvFarmers"
         dgvFarmers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = SystemColors.Control
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle5.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgvFarmers.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle23.BackColor = SystemColors.Control
+        DataGridViewCellStyle23.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle23.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle23.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle23.WrapMode = DataGridViewTriState.True
+        dgvFarmers.RowHeadersDefaultCellStyle = DataGridViewCellStyle23
         dgvFarmers.RowHeadersVisible = False
         dgvFarmers.RowHeadersWidth = 60
         dgvFarmers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -536,6 +546,75 @@ Partial Class frmPanelHolder
         dgvFarmers.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvFarmers.Size = New Size(1559, 428)
         dgvFarmers.TabIndex = 5
+        ' 
+        ' farmer_id
+        ' 
+        farmer_id.DataPropertyName = "farmer_id"
+        farmer_id.HeaderText = "ID"
+        farmer_id.Name = "farmer_id"
+        farmer_id.Visible = False
+        ' 
+        ' formatted_id
+        ' 
+        formatted_id.DataPropertyName = "formatted_id"
+        formatted_id.HeaderText = "Farmer ID"
+        formatted_id.Name = "formatted_id"
+        formatted_id.Width = 225
+        ' 
+        ' full_name
+        ' 
+        full_name.DataPropertyName = "full_name"
+        full_name.HeaderText = "Full Name"
+        full_name.Name = "full_name"
+        full_name.Width = 300
+        ' 
+        ' residence_address
+        ' 
+        residence_address.DataPropertyName = "residence_address"
+        residence_address.HeaderText = "Address"
+        residence_address.Name = "residence_address"
+        residence_address.Width = 325
+        ' 
+        ' contact_number
+        ' 
+        contact_number.DataPropertyName = "contact_number"
+        contact_number.HeaderText = "ContactNumber"
+        contact_number.Name = "contact_number"
+        contact_number.Width = 200
+        ' 
+        ' classification
+        ' 
+        classification.DataPropertyName = "classification"
+        classification.HeaderText = "Classification"
+        classification.Name = "classification"
+        classification.Width = 200
+        ' 
+        ' registration_status
+        ' 
+        registration_status.DataPropertyName = "registration_status"
+        registration_status.HeaderText = "Status"
+        registration_status.Name = "registration_status"
+        registration_status.Width = 150
+        ' 
+        ' FarmerEdit
+        ' 
+        DataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle21.NullValue = "None"
+        FarmerEdit.DefaultCellStyle = DataGridViewCellStyle21
+        FarmerEdit.HeaderText = "Edit"
+        FarmerEdit.Image = CType(resources.GetObject("FarmerEdit.Image"), Image)
+        FarmerEdit.Name = "FarmerEdit"
+        FarmerEdit.Resizable = DataGridViewTriState.True
+        FarmerEdit.SortMode = DataGridViewColumnSortMode.Automatic
+        FarmerEdit.Width = 75
+        ' 
+        ' FarmerDelete
+        ' 
+        FarmerDelete.DataPropertyName = "FarmerDelete"
+        FarmerDelete.HeaderText = "Delete"
+        FarmerDelete.Image = CType(resources.GetObject("FarmerDelete.Image"), Image)
+        FarmerDelete.Name = "FarmerDelete"
+        FarmerDelete.Width = 75
         ' 
         ' pnlFarmersSearch
         ' 
@@ -584,7 +663,7 @@ Partial Class frmPanelHolder
         ' lblTotalPending
         ' 
         lblTotalPending.AutoSize = True
-        lblTotalPending.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblTotalPending.Font = New Font("Segoe UI", 48.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblTotalPending.Location = New Point(15, 50)
         lblTotalPending.Name = "lblTotalPending"
         lblTotalPending.Size = New Size(111, 86)
@@ -594,7 +673,7 @@ Partial Class frmPanelHolder
         ' lblPendingViolation
         ' 
         lblPendingViolation.AutoSize = True
-        lblPendingViolation.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        lblPendingViolation.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         lblPendingViolation.ForeColor = SystemColors.ControlDarkDark
         lblPendingViolation.Location = New Point(15, 13)
         lblPendingViolation.Name = "lblPendingViolation"
@@ -605,7 +684,7 @@ Partial Class frmPanelHolder
         ' lblFarmerSubtitle
         ' 
         lblFarmerSubtitle.AutoSize = True
-        lblFarmerSubtitle.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblFarmerSubtitle.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFarmerSubtitle.ForeColor = SystemColors.ControlDarkDark
         lblFarmerSubtitle.Location = New Point(19, 125)
         lblFarmerSubtitle.Name = "lblFarmerSubtitle"
@@ -616,7 +695,7 @@ Partial Class frmPanelHolder
         ' lblFarmerHeader
         ' 
         lblFarmerHeader.AutoSize = True
-        lblFarmerHeader.Font = New Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblFarmerHeader.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFarmerHeader.ForeColor = Color.Black
         lblFarmerHeader.Location = New Point(12, 71)
         lblFarmerHeader.Name = "lblFarmerHeader"
@@ -638,7 +717,7 @@ Partial Class frmPanelHolder
         ' lblFarmerTotal
         ' 
         lblFarmerTotal.AutoSize = True
-        lblFarmerTotal.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblFarmerTotal.Font = New Font("Segoe UI", 48.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFarmerTotal.Location = New Point(15, 50)
         lblFarmerTotal.Name = "lblFarmerTotal"
         lblFarmerTotal.Size = New Size(111, 86)
@@ -648,7 +727,7 @@ Partial Class frmPanelHolder
         ' lblTotalFarmers
         ' 
         lblTotalFarmers.AutoSize = True
-        lblTotalFarmers.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        lblTotalFarmers.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         lblTotalFarmers.ForeColor = SystemColors.ControlDarkDark
         lblTotalFarmers.Location = New Point(15, 13)
         lblTotalFarmers.Name = "lblTotalFarmers"
@@ -674,7 +753,7 @@ Partial Class frmPanelHolder
         ' lblServiceDir
         ' 
         lblServiceDir.AutoSize = True
-        lblServiceDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServiceDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServiceDir.ForeColor = SystemColors.ControlDark
         lblServiceDir.Location = New Point(19, 25)
         lblServiceDir.Name = "lblServiceDir"
@@ -688,7 +767,7 @@ Partial Class frmPanelHolder
         btnAddService.BackgroundImageLayout = ImageLayout.None
         btnAddService.FlatAppearance.BorderSize = 0
         btnAddService.FlatStyle = FlatStyle.Flat
-        btnAddService.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        btnAddService.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         btnAddService.ForeColor = Color.White
         btnAddService.Image = CType(resources.GetObject("btnAddService.Image"), Image)
         btnAddService.ImageAlign = ContentAlignment.MiddleLeft
@@ -705,7 +784,7 @@ Partial Class frmPanelHolder
         btExportServiceReport.BackColor = Color.White
         btExportServiceReport.FlatAppearance.BorderColor = Color.Silver
         btExportServiceReport.FlatStyle = FlatStyle.Flat
-        btExportServiceReport.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btExportServiceReport.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btExportServiceReport.Image = CType(resources.GetObject("btExportServiceReport.Image"), Image)
         btExportServiceReport.ImageAlign = ContentAlignment.MiddleLeft
         btExportServiceReport.Location = New Point(1320, 410)
@@ -726,50 +805,50 @@ Partial Class frmPanelHolder
         ' 
         ' dgvServices
         ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvServices.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvServices.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle24
         dgvServices.BackgroundColor = Color.White
         dgvServices.BorderStyle = BorderStyle.None
         dgvServices.CellBorderStyle = DataGridViewCellBorderStyle.None
         dgvServices.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
         dgvServices.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = Color.White
-        DataGridViewCellStyle7.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
-        DataGridViewCellStyle7.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = SystemColors.ControlLight
-        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        dgvServices.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle25.BackColor = Color.White
+        DataGridViewCellStyle25.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        DataGridViewCellStyle25.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle25.SelectionBackColor = SystemColors.ControlLight
+        DataGridViewCellStyle25.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle25.WrapMode = DataGridViewTriState.True
+        dgvServices.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle25
         dgvServices.ColumnHeadersHeight = 50
         dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        dgvServices.Columns.AddRange(New DataGridViewColumn() {service_id, machinery_id, service_name, service_type, service_description, service_policy_limit, employee_id})
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = SystemColors.Window
-        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle8.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = SystemColors.ButtonFace
-        DataGridViewCellStyle8.SelectionForeColor = SystemColors.ControlText
-        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
-        dgvServices.DefaultCellStyle = DataGridViewCellStyle8
+        dgvServices.Columns.AddRange(New DataGridViewColumn() {service_id, machinery_name, service_name, service_type, service_description, service_policy_limit, employee_name})
+        DataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle26.BackColor = SystemColors.Window
+        DataGridViewCellStyle26.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle26.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle26.SelectionBackColor = SystemColors.ButtonFace
+        DataGridViewCellStyle26.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle26.WrapMode = DataGridViewTriState.True
+        dgvServices.DefaultCellStyle = DataGridViewCellStyle26
         dgvServices.EnableHeadersVisualStyles = False
         dgvServices.GridColor = Color.White
         dgvServices.Location = New Point(14, 12)
         dgvServices.Name = "dgvServices"
         dgvServices.ReadOnly = True
         dgvServices.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = SystemColors.Control
-        DataGridViewCellStyle9.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle9.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = DataGridViewTriState.True
-        dgvServices.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle27.BackColor = SystemColors.Control
+        DataGridViewCellStyle27.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle27.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle27.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle27.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle27.WrapMode = DataGridViewTriState.True
+        dgvServices.RowHeadersDefaultCellStyle = DataGridViewCellStyle27
         dgvServices.RowHeadersVisible = False
         dgvServices.RowHeadersWidth = 60
         dgvServices.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        dgvServices.RowTemplate.Height = 40
+        dgvServices.RowTemplate.Height = 90
         dgvServices.RowTemplate.Resizable = DataGridViewTriState.True
         dgvServices.ScrollBars = ScrollBars.Vertical
         dgvServices.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -778,19 +857,19 @@ Partial Class frmPanelHolder
         ' 
         ' service_id
         ' 
-        service_id.DataPropertyName = "service_id"
+        service_id.DataPropertyName = "formatted_service_id"
         service_id.HeaderText = "Service ID"
         service_id.Name = "service_id"
         service_id.ReadOnly = True
         service_id.Width = 175
         ' 
-        ' machinery_id
+        ' machinery_name
         ' 
-        machinery_id.DataPropertyName = "machinery_id"
-        machinery_id.HeaderText = "Machinery ID"
-        machinery_id.Name = "machinery_id"
-        machinery_id.ReadOnly = True
-        machinery_id.Width = 175
+        machinery_name.DataPropertyName = "machinery_name"
+        machinery_name.HeaderText = "Machinery Name"
+        machinery_name.Name = "machinery_name"
+        machinery_name.ReadOnly = True
+        machinery_name.Width = 175
         ' 
         ' service_name
         ' 
@@ -819,18 +898,19 @@ Partial Class frmPanelHolder
         ' service_policy_limit
         ' 
         service_policy_limit.DataPropertyName = "policy_limit"
+        service_policy_limit.FillWeight = 300.0F
         service_policy_limit.HeaderText = "Policy Limit"
         service_policy_limit.Name = "service_policy_limit"
         service_policy_limit.ReadOnly = True
         service_policy_limit.Width = 250
         ' 
-        ' employee_id
+        ' employee_name
         ' 
-        employee_id.DataPropertyName = "employee_id"
-        employee_id.HeaderText = "Employee ID"
-        employee_id.Name = "employee_id"
-        employee_id.ReadOnly = True
-        employee_id.Width = 150
+        employee_name.DataPropertyName = "employee_name"
+        employee_name.HeaderText = "Employee Name"
+        employee_name.Name = "employee_name"
+        employee_name.ReadOnly = True
+        employee_name.Width = 150
         ' 
         ' pnlSearchService
         ' 
@@ -868,7 +948,7 @@ Partial Class frmPanelHolder
         ' lblServiceSubtitle
         ' 
         lblServiceSubtitle.AutoSize = True
-        lblServiceSubtitle.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServiceSubtitle.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServiceSubtitle.ForeColor = SystemColors.ControlDarkDark
         lblServiceSubtitle.Location = New Point(19, 125)
         lblServiceSubtitle.Name = "lblServiceSubtitle"
@@ -879,7 +959,7 @@ Partial Class frmPanelHolder
         ' lblServicesHeader
         ' 
         lblServicesHeader.AutoSize = True
-        lblServicesHeader.Font = New Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServicesHeader.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServicesHeader.ForeColor = Color.Black
         lblServicesHeader.Location = New Point(12, 71)
         lblServicesHeader.Name = "lblServicesHeader"
@@ -901,7 +981,7 @@ Partial Class frmPanelHolder
         ' lblServiceTotal
         ' 
         lblServiceTotal.AutoSize = True
-        lblServiceTotal.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServiceTotal.Font = New Font("Segoe UI", 48.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServiceTotal.Location = New Point(15, 50)
         lblServiceTotal.Name = "lblServiceTotal"
         lblServiceTotal.Size = New Size(111, 86)
@@ -911,13 +991,13 @@ Partial Class frmPanelHolder
         ' lblTotalServices
         ' 
         lblTotalServices.AutoSize = True
-        lblTotalServices.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        lblTotalServices.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         lblTotalServices.ForeColor = SystemColors.ControlDarkDark
         lblTotalServices.Location = New Point(15, 13)
         lblTotalServices.Name = "lblTotalServices"
-        lblTotalServices.Size = New Size(110, 21)
+        lblTotalServices.Size = New Size(180, 21)
         lblTotalServices.TabIndex = 0
-        lblTotalServices.Text = "Total Services"
+        lblTotalServices.Text = "Total Services Available"
         ' 
         ' pnlOperator
         ' 
@@ -938,20 +1018,242 @@ Partial Class frmPanelHolder
         ' 
         ' pnlMachinery
         ' 
+        pnlMachinery.Controls.Add(LblMachinery)
+        pnlMachinery.Controls.Add(Panel1)
+        pnlMachinery.Controls.Add(Label4)
+        pnlMachinery.Controls.Add(HeaderMachinery)
+        pnlMachinery.Controls.Add(Panel6)
+        pnlMachinery.Controls.Add(btnAddMachinery)
+        pnlMachinery.Controls.Add(Panel7)
         pnlMachinery.Controls.Add(Label3)
         pnlMachinery.Location = New Point(0, 0)
         pnlMachinery.Name = "pnlMachinery"
         pnlMachinery.Size = New Size(1663, 1041)
         pnlMachinery.TabIndex = 13
         ' 
+        ' LblMachinery
+        ' 
+        LblMachinery.AutoSize = True
+        LblMachinery.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblMachinery.ForeColor = SystemColors.ControlDark
+        LblMachinery.Location = New Point(26, 25)
+        LblMachinery.Name = "LblMachinery"
+        LblMachinery.Size = New Size(87, 21)
+        LblMachinery.TabIndex = 29
+        LblMachinery.Text = "Machinery"
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.White
+        Panel1.Controls.Add(Button4)
+        Panel1.ForeColor = Color.White
+        Panel1.Location = New Point(26, 410)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(568, 37)
+        Panel1.TabIndex = 33
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.White
+        Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), Image)
+        Button4.BackgroundImageLayout = ImageLayout.Center
+        Button4.FlatAppearance.BorderSize = 0
+        Button4.FlatStyle = FlatStyle.Flat
+        Button4.Location = New Point(5, 4)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(31, 30)
+        Button4.TabIndex = 7
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.ForeColor = SystemColors.ControlDarkDark
+        Label4.Location = New Point(26, 125)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(291, 21)
+        Label4.TabIndex = 32
+        Label4.Text = "P.A.B.E.O. machinery inventory records"
+        ' 
+        ' HeaderMachinery
+        ' 
+        HeaderMachinery.AutoSize = True
+        HeaderMachinery.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        HeaderMachinery.ForeColor = Color.Black
+        HeaderMachinery.Location = New Point(19, 71)
+        HeaderMachinery.Name = "HeaderMachinery"
+        HeaderMachinery.Size = New Size(486, 54)
+        HeaderMachinery.TabIndex = 31
+        HeaderMachinery.Text = "Machinery Management"
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.White
+        Panel6.Controls.Add(MachineAmount)
+        Panel6.Controls.Add(Label13)
+        Panel6.ForeColor = Color.Black
+        Panel6.Location = New Point(26, 200)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(337, 178)
+        Panel6.TabIndex = 30
+        ' 
+        ' MachineAmount
+        ' 
+        MachineAmount.AutoSize = True
+        MachineAmount.Font = New Font("Segoe UI", 48.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        MachineAmount.Location = New Point(15, 50)
+        MachineAmount.Name = "MachineAmount"
+        MachineAmount.Size = New Size(111, 86)
+        MachineAmount.TabIndex = 1
+        MachineAmount.Text = "00"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        Label13.ForeColor = SystemColors.ControlDarkDark
+        Label13.Location = New Point(15, 13)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(111, 21)
+        Label13.TabIndex = 0
+        Label13.Text = "Total Machine"
+        ' 
+        ' btnAddMachinery
+        ' 
+        btnAddMachinery.BackColor = Color.DarkGreen
+        btnAddMachinery.BackgroundImageLayout = ImageLayout.None
+        btnAddMachinery.FlatAppearance.BorderSize = 0
+        btnAddMachinery.FlatStyle = FlatStyle.Flat
+        btnAddMachinery.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        btnAddMachinery.ForeColor = Color.White
+        btnAddMachinery.Image = CType(resources.GetObject("btnAddMachinery.Image"), Image)
+        btnAddMachinery.ImageAlign = ContentAlignment.MiddleLeft
+        btnAddMachinery.Location = New Point(1421, 410)
+        btnAddMachinery.Name = "btnAddMachinery"
+        btnAddMachinery.Size = New Size(201, 37)
+        btnAddMachinery.TabIndex = 36
+        btnAddMachinery.TabStop = False
+        btnAddMachinery.Text = "Register Machine"
+        btnAddMachinery.UseVisualStyleBackColor = False
+        ' 
+        ' Panel7
+        ' 
+        Panel7.BackColor = Color.White
+        Panel7.Controls.Add(dgvMachinery)
+        Panel7.Location = New Point(26, 462)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(1596, 489)
+        Panel7.TabIndex = 34
+        ' 
+        ' dgvMachinery
+        ' 
+        DataGridViewCellStyle28.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvMachinery.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle28
+        dgvMachinery.BackgroundColor = Color.White
+        dgvMachinery.BorderStyle = BorderStyle.None
+        dgvMachinery.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgvMachinery.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
+        dgvMachinery.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle29.BackColor = Color.White
+        DataGridViewCellStyle29.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        DataGridViewCellStyle29.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle29.SelectionBackColor = SystemColors.ControlLight
+        DataGridViewCellStyle29.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle29.WrapMode = DataGridViewTriState.True
+        dgvMachinery.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle29
+        dgvMachinery.ColumnHeadersHeight = 50
+        dgvMachinery.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvMachinery.Columns.AddRange(New DataGridViewColumn() {formatted_machinery_id, machine_name, machinery_type, station_id, condition, availability})
+        DataGridViewCellStyle30.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle30.BackColor = SystemColors.Window
+        DataGridViewCellStyle30.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle30.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle30.SelectionBackColor = SystemColors.ButtonFace
+        DataGridViewCellStyle30.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle30.WrapMode = DataGridViewTriState.True
+        dgvMachinery.DefaultCellStyle = DataGridViewCellStyle30
+        dgvMachinery.EnableHeadersVisualStyles = False
+        dgvMachinery.GridColor = Color.White
+        dgvMachinery.Location = New Point(14, 12)
+        dgvMachinery.Name = "dgvMachinery"
+        dgvMachinery.ReadOnly = True
+        dgvMachinery.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle31.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle31.BackColor = SystemColors.Control
+        DataGridViewCellStyle31.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle31.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle31.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle31.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle31.WrapMode = DataGridViewTriState.True
+        dgvMachinery.RowHeadersDefaultCellStyle = DataGridViewCellStyle31
+        dgvMachinery.RowHeadersVisible = False
+        dgvMachinery.RowHeadersWidth = 60
+        dgvMachinery.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        dgvMachinery.RowTemplate.Height = 90
+        dgvMachinery.RowTemplate.Resizable = DataGridViewTriState.True
+        dgvMachinery.ScrollBars = ScrollBars.Vertical
+        dgvMachinery.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvMachinery.Size = New Size(1559, 428)
+        dgvMachinery.TabIndex = 5
+        ' 
+        ' formatted_machinery_id
+        ' 
+        formatted_machinery_id.DataPropertyName = "formatted_machinery_id"
+        formatted_machinery_id.HeaderText = "Machinery ID"
+        formatted_machinery_id.Name = "formatted_machinery_id"
+        formatted_machinery_id.ReadOnly = True
+        formatted_machinery_id.Width = 175
+        ' 
+        ' machine_name
+        ' 
+        machine_name.DataPropertyName = "machine_name"
+        machine_name.HeaderText = "Machinery Name"
+        machine_name.Name = "machine_name"
+        machine_name.ReadOnly = True
+        machine_name.Width = 175
+        ' 
+        ' machinery_type
+        ' 
+        machinery_type.DataPropertyName = "machinery_type"
+        machinery_type.HeaderText = "Machinery Type"
+        machinery_type.Name = "machinery_type"
+        machinery_type.ReadOnly = True
+        machinery_type.Width = 175
+        ' 
+        ' station_id
+        ' 
+        station_id.DataPropertyName = "station_id"
+        station_id.HeaderText = "Station ID"
+        station_id.Name = "station_id"
+        station_id.ReadOnly = True
+        station_id.Width = 175
+        ' 
+        ' condition
+        ' 
+        condition.DataPropertyName = "condition"
+        condition.HeaderText = "Condition"
+        condition.Name = "condition"
+        condition.ReadOnly = True
+        condition.Width = 450
+        ' 
+        ' availability
+        ' 
+        availability.DataPropertyName = "availability"
+        availability.FillWeight = 300.0F
+        availability.HeaderText = "Availability"
+        availability.Name = "availability"
+        availability.ReadOnly = True
+        availability.Width = 250
+        ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(942, 513)
+        Label3.Location = New Point(938, 9)
         Label3.Name = "Label3"
-        Label3.Size = New Size(63, 15)
+        Label3.Size = New Size(0, 15)
         Label3.TabIndex = 1
-        Label3.Text = "Machinery"
         ' 
         ' pnlRequests
         ' 
@@ -971,7 +1273,7 @@ Partial Class frmPanelHolder
         ' lblRequestsDir
         ' 
         lblRequestsDir.AutoSize = True
-        lblRequestsDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblRequestsDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRequestsDir.ForeColor = SystemColors.ControlDark
         lblRequestsDir.Location = New Point(19, 25)
         lblRequestsDir.Name = "lblRequestsDir"
@@ -985,7 +1287,7 @@ Partial Class frmPanelHolder
         Button1.BackgroundImageLayout = ImageLayout.None
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        Button1.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         Button1.ForeColor = Color.White
         Button1.Image = CType(resources.GetObject("Button1.Image"), Image)
         Button1.ImageAlign = ContentAlignment.MiddleLeft
@@ -1002,7 +1304,7 @@ Partial Class frmPanelHolder
         Button2.BackColor = Color.White
         Button2.FlatAppearance.BorderColor = Color.Silver
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.Image = CType(resources.GetObject("Button2.Image"), Image)
         Button2.ImageAlign = ContentAlignment.MiddleLeft
         Button2.Location = New Point(1320, 410)
@@ -1024,45 +1326,45 @@ Partial Class frmPanelHolder
         ' dgvRequests
         ' 
         dgvRequests.AllowUserToOrderColumns = True
-        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvRequests.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvRequests.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle32
         dgvRequests.BackgroundColor = Color.White
         dgvRequests.BorderStyle = BorderStyle.None
         dgvRequests.CellBorderStyle = DataGridViewCellBorderStyle.None
         dgvRequests.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
         dgvRequests.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = Color.White
-        DataGridViewCellStyle11.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
-        DataGridViewCellStyle11.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = SystemColors.ControlLight
-        DataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = DataGridViewTriState.True
-        dgvRequests.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle33.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle33.BackColor = Color.White
+        DataGridViewCellStyle33.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        DataGridViewCellStyle33.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle33.SelectionBackColor = SystemColors.ControlLight
+        DataGridViewCellStyle33.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle33.WrapMode = DataGridViewTriState.True
+        dgvRequests.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle33
         dgvRequests.ColumnHeadersHeight = 50
         dgvRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         dgvRequests.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6, DataGridViewImageColumn1, DataGridViewImageColumn2})
-        DataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle13.BackColor = SystemColors.Window
-        DataGridViewCellStyle13.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle13.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle13.SelectionBackColor = SystemColors.ButtonFace
-        DataGridViewCellStyle13.SelectionForeColor = SystemColors.ControlText
-        DataGridViewCellStyle13.WrapMode = DataGridViewTriState.False
-        dgvRequests.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle35.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle35.BackColor = SystemColors.Window
+        DataGridViewCellStyle35.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle35.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle35.SelectionBackColor = SystemColors.ButtonFace
+        DataGridViewCellStyle35.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle35.WrapMode = DataGridViewTriState.False
+        dgvRequests.DefaultCellStyle = DataGridViewCellStyle35
         dgvRequests.EnableHeadersVisualStyles = False
         dgvRequests.GridColor = Color.White
         dgvRequests.Location = New Point(15, 12)
         dgvRequests.Name = "dgvRequests"
         dgvRequests.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = SystemColors.Control
-        DataGridViewCellStyle14.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle14.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = DataGridViewTriState.True
-        dgvRequests.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle36.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle36.BackColor = SystemColors.Control
+        DataGridViewCellStyle36.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle36.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle36.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle36.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle36.WrapMode = DataGridViewTriState.True
+        dgvRequests.RowHeadersDefaultCellStyle = DataGridViewCellStyle36
         dgvRequests.RowHeadersVisible = False
         dgvRequests.RowHeadersWidth = 60
         dgvRequests.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -1110,16 +1412,18 @@ Partial Class frmPanelHolder
         ' 
         ' DataGridViewTextBoxColumn6
         ' 
-        DataGridViewTextBoxColumn6.DataPropertyName = "registration_status"
-        DataGridViewTextBoxColumn6.HeaderText = "Status"
+        DataGridViewTextBoxColumn6.DataPropertyName = "service_status"
+        DataGridViewTextBoxColumn6.FlatStyle = FlatStyle.Flat
+        DataGridViewTextBoxColumn6.HeaderText = "Service Status"
+        DataGridViewTextBoxColumn6.Items.AddRange(New Object() {"Pending", "Approved", "Rejected", "Done"})
         DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         DataGridViewTextBoxColumn6.Width = 150
         ' 
         ' DataGridViewImageColumn1
         ' 
-        DataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.NullValue = "None"
-        DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle34.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle34.NullValue = "None"
+        DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle34
         DataGridViewImageColumn1.HeaderText = "Edit"
         DataGridViewImageColumn1.Image = CType(resources.GetObject("DataGridViewImageColumn1.Image"), Image)
         DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
@@ -1137,7 +1441,7 @@ Partial Class frmPanelHolder
         ' Panel2
         ' 
         Panel2.BackColor = Color.White
-        Panel2.Controls.Add(TextBox1)
+        Panel2.Controls.Add(txtRequestSearch)
         Panel2.Controls.Add(Button3)
         Panel2.ForeColor = Color.White
         Panel2.Location = New Point(19, 410)
@@ -1145,14 +1449,14 @@ Partial Class frmPanelHolder
         Panel2.Size = New Size(568, 37)
         Panel2.TabIndex = 17
         ' 
-        ' TextBox1
+        ' txtRequestSearch
         ' 
-        TextBox1.BorderStyle = BorderStyle.None
-        TextBox1.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(46, 5)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(515, 28)
-        TextBox1.TabIndex = 6
+        txtRequestSearch.BorderStyle = BorderStyle.None
+        txtRequestSearch.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtRequestSearch.Location = New Point(46, 5)
+        txtRequestSearch.Name = "txtRequestSearch"
+        txtRequestSearch.Size = New Size(515, 28)
+        txtRequestSearch.TabIndex = 6
         ' 
         ' Button3
         ' 
@@ -1170,7 +1474,7 @@ Partial Class frmPanelHolder
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label8.ForeColor = SystemColors.ControlDarkDark
         Label8.Location = New Point(19, 125)
         Label8.Name = "Label8"
@@ -1181,7 +1485,7 @@ Partial Class frmPanelHolder
         ' lblRequestsHeader
         ' 
         lblRequestsHeader.AutoSize = True
-        lblRequestsHeader.Font = New Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblRequestsHeader.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRequestsHeader.ForeColor = Color.Black
         lblRequestsHeader.Location = New Point(12, 71)
         lblRequestsHeader.Name = "lblRequestsHeader"
@@ -1203,7 +1507,7 @@ Partial Class frmPanelHolder
         ' lblAmountPendingRequests
         ' 
         lblAmountPendingRequests.AutoSize = True
-        lblAmountPendingRequests.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAmountPendingRequests.Font = New Font("Segoe UI", 48.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblAmountPendingRequests.Location = New Point(15, 50)
         lblAmountPendingRequests.Name = "lblAmountPendingRequests"
         lblAmountPendingRequests.Size = New Size(111, 86)
@@ -1213,7 +1517,7 @@ Partial Class frmPanelHolder
         ' lblTotalPendingRequsts
         ' 
         lblTotalPendingRequsts.AutoSize = True
-        lblTotalPendingRequsts.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        lblTotalPendingRequsts.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         lblTotalPendingRequsts.ForeColor = SystemColors.ControlDarkDark
         lblTotalPendingRequsts.Location = New Point(15, 13)
         lblTotalPendingRequsts.Name = "lblTotalPendingRequsts"
@@ -1281,7 +1585,7 @@ Partial Class frmPanelHolder
         ' 
         btnRegisterFarmer.BackColor = Color.FromArgb(CByte(172), CByte(248), CByte(71))
         btnRegisterFarmer.FlatStyle = FlatStyle.Flat
-        btnRegisterFarmer.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnRegisterFarmer.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnRegisterFarmer.ForeColor = Color.DarkGreen
         btnRegisterFarmer.Location = New Point(837, 927)
         btnRegisterFarmer.Name = "btnRegisterFarmer"
@@ -1294,7 +1598,7 @@ Partial Class frmPanelHolder
         ' 
         btnRegisterCancel.BackColor = Color.FromArgb(CByte(49), CByte(68), CByte(56))
         btnRegisterCancel.FlatStyle = FlatStyle.Flat
-        btnRegisterCancel.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        btnRegisterCancel.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         btnRegisterCancel.ForeColor = Color.White
         btnRegisterCancel.Location = New Point(677, 927)
         btnRegisterCancel.Name = "btnRegisterCancel"
@@ -1330,7 +1634,7 @@ Partial Class frmPanelHolder
         ' 
         cmbRegStatus.DropDownStyle = ComboBoxStyle.DropDownList
         cmbRegStatus.FlatStyle = FlatStyle.Flat
-        cmbRegStatus.Font = New Font("Segoe UI", 12F)
+        cmbRegStatus.Font = New Font("Segoe UI", 12.0F)
         cmbRegStatus.FormattingEnabled = True
         cmbRegStatus.Items.AddRange(New Object() {"NEW FARMER"})
         cmbRegStatus.Location = New Point(3, 8)
@@ -1341,7 +1645,7 @@ Partial Class frmPanelHolder
         ' lblRegStatus
         ' 
         lblRegStatus.AutoSize = True
-        lblRegStatus.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblRegStatus.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblRegStatus.ForeColor = Color.DimGray
         lblRegStatus.ImageAlign = ContentAlignment.MiddleLeft
         lblRegStatus.Location = New Point(22, 119)
@@ -1353,7 +1657,7 @@ Partial Class frmPanelHolder
         ' lblClassification
         ' 
         lblClassification.AutoSize = True
-        lblClassification.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblClassification.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblClassification.ForeColor = Color.DimGray
         lblClassification.ImageAlign = ContentAlignment.MiddleLeft
         lblClassification.Location = New Point(22, 25)
@@ -1376,7 +1680,7 @@ Partial Class frmPanelHolder
         ' 
         cmbClass.DropDownStyle = ComboBoxStyle.DropDownList
         cmbClass.FlatStyle = FlatStyle.Flat
-        cmbClass.Font = New Font("Segoe UI", 12F)
+        cmbClass.Font = New Font("Segoe UI", 12.0F)
         cmbClass.FormattingEnabled = True
         cmbClass.Items.AddRange(New Object() {"INDIVIDUAL", "ASSOCIATION", "COOPERATIVE"})
         cmbClass.Location = New Point(3, 8)
@@ -1388,7 +1692,7 @@ Partial Class frmPanelHolder
         ' 
         lblMainDir2.AutoSize = True
         lblMainDir2.Cursor = Cursors.Hand
-        lblMainDir2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblMainDir2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblMainDir2.ForeColor = SystemColors.ControlDark
         lblMainDir2.Location = New Point(19, 25)
         lblMainDir2.Name = "lblMainDir2"
@@ -1399,7 +1703,7 @@ Partial Class frmPanelHolder
         ' lblSubDir
         ' 
         lblSubDir.AutoSize = True
-        lblSubDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblSubDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSubDir.ForeColor = Color.ForestGreen
         lblSubDir.Location = New Point(82, 25)
         lblSubDir.Name = "lblSubDir"
@@ -1451,7 +1755,7 @@ Partial Class frmPanelHolder
         ' lblProvince
         ' 
         lblProvince.AutoSize = True
-        lblProvince.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblProvince.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblProvince.ForeColor = Color.DimGray
         lblProvince.ImageAlign = ContentAlignment.MiddleLeft
         lblProvince.Location = New Point(383, 3)
@@ -1463,19 +1767,19 @@ Partial Class frmPanelHolder
         ' lblCity
         ' 
         lblCity.AutoSize = True
-        lblCity.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblCity.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblCity.ForeColor = Color.DimGray
         lblCity.ImageAlign = ContentAlignment.MiddleLeft
         lblCity.Location = New Point(201, 2)
         lblCity.Name = "lblCity"
-        lblCity.Size = New Size(30, 13)
+        lblCity.Size = New Size(84, 13)
         lblCity.TabIndex = 12
-        lblCity.Text = "CITY"
+        lblCity.Text = "MUNICIPALITY"
         ' 
         ' lblBarangay
         ' 
         lblBarangay.AutoSize = True
-        lblBarangay.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblBarangay.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblBarangay.ForeColor = Color.DimGray
         lblBarangay.ImageAlign = ContentAlignment.MiddleLeft
         lblBarangay.Location = New Point(4, 2)
@@ -1500,6 +1804,7 @@ Partial Class frmPanelHolder
         cmbCity.DropDownStyle = ComboBoxStyle.DropDownList
         cmbCity.FlatStyle = FlatStyle.Flat
         cmbCity.FormattingEnabled = True
+        cmbCity.Items.AddRange(New Object() {"DAET", "MERCEDES", "BASUD", "SAN LORENZO RUIZ", "TALISAY", "SAN VICENTE", "VINZONS", "SANTA ELENA", "LABO", "PARACALE", "JOSE PANGANIBAN", "CAPALONGA"})
         cmbCity.Location = New Point(201, 18)
         cmbCity.Name = "cmbCity"
         cmbCity.Size = New Size(176, 23)
@@ -1507,7 +1812,6 @@ Partial Class frmPanelHolder
         ' 
         ' cmbBarangay
         ' 
-        cmbBarangay.DropDownStyle = ComboBoxStyle.DropDownList
         cmbBarangay.FlatStyle = FlatStyle.Flat
         cmbBarangay.FormattingEnabled = True
         cmbBarangay.Location = New Point(4, 18)
@@ -1518,7 +1822,7 @@ Partial Class frmPanelHolder
         ' lblFResidenceAddress
         ' 
         lblFResidenceAddress.AutoSize = True
-        lblFResidenceAddress.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFResidenceAddress.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFResidenceAddress.ForeColor = Color.DimGray
         lblFResidenceAddress.ImageAlign = ContentAlignment.MiddleLeft
         lblFResidenceAddress.Location = New Point(21, 434)
@@ -1530,7 +1834,7 @@ Partial Class frmPanelHolder
         ' lblRSBSA
         ' 
         lblRSBSA.AutoSize = True
-        lblRSBSA.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblRSBSA.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblRSBSA.ForeColor = Color.DimGray
         lblRSBSA.ImageAlign = ContentAlignment.MiddleLeft
         lblRSBSA.Location = New Point(21, 87)
@@ -1553,7 +1857,7 @@ Partial Class frmPanelHolder
         ' 
         txtFarmerID.BackColor = Color.White
         txtFarmerID.BorderStyle = BorderStyle.None
-        txtFarmerID.Font = New Font("Segoe UI", 12F)
+        txtFarmerID.Font = New Font("Segoe UI", 12.0F)
         txtFarmerID.Location = New Point(3, 11)
         txtFarmerID.Name = "txtFarmerID"
         txtFarmerID.ReadOnly = True
@@ -1575,7 +1879,7 @@ Partial Class frmPanelHolder
         txtFAge.BackColor = Color.White
         txtFAge.BorderStyle = BorderStyle.None
         txtFAge.CharacterCasing = CharacterCasing.Upper
-        txtFAge.Font = New Font("Segoe UI", 12F)
+        txtFAge.Font = New Font("Segoe UI", 12.0F)
         txtFAge.Location = New Point(3, 10)
         txtFAge.Name = "txtFAge"
         txtFAge.ReadOnly = True
@@ -1585,7 +1889,7 @@ Partial Class frmPanelHolder
         ' lblFAge
         ' 
         lblFAge.AutoSize = True
-        lblFAge.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFAge.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFAge.ForeColor = Color.DimGray
         lblFAge.ImageAlign = ContentAlignment.MiddleLeft
         lblFAge.Location = New Point(381, 263)
@@ -1597,7 +1901,7 @@ Partial Class frmPanelHolder
         ' lblFBirth
         ' 
         lblFBirth.AutoSize = True
-        lblFBirth.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFBirth.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFBirth.ForeColor = Color.DimGray
         lblFBirth.ImageAlign = ContentAlignment.MiddleLeft
         lblFBirth.Location = New Point(21, 263)
@@ -1624,7 +1928,7 @@ Partial Class frmPanelHolder
         ' lblYear
         ' 
         lblYear.AutoSize = True
-        lblYear.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblYear.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblYear.ForeColor = Color.DimGray
         lblYear.ImageAlign = ContentAlignment.MiddleLeft
         lblYear.Location = New Point(236, 3)
@@ -1636,7 +1940,7 @@ Partial Class frmPanelHolder
         ' lblDay
         ' 
         lblDay.AutoSize = True
-        lblDay.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblDay.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblDay.ForeColor = Color.DimGray
         lblDay.ImageAlign = ContentAlignment.MiddleLeft
         lblDay.Location = New Point(133, 2)
@@ -1648,7 +1952,7 @@ Partial Class frmPanelHolder
         ' lblMonth
         ' 
         lblMonth.AutoSize = True
-        lblMonth.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        lblMonth.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold)
         lblMonth.ForeColor = Color.DimGray
         lblMonth.ImageAlign = ContentAlignment.MiddleLeft
         lblMonth.Location = New Point(4, 2)
@@ -1693,7 +1997,7 @@ Partial Class frmPanelHolder
         ' lblFAdress
         ' 
         lblFAdress.AutoSize = True
-        lblFAdress.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFAdress.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFAdress.ForeColor = Color.DimGray
         lblFAdress.ImageAlign = ContentAlignment.MiddleLeft
         lblFAdress.Location = New Point(21, 519)
@@ -1716,7 +2020,7 @@ Partial Class frmPanelHolder
         ' 
         txtFAddress.BorderStyle = BorderStyle.None
         txtFAddress.CharacterCasing = CharacterCasing.Upper
-        txtFAddress.Font = New Font("Segoe UI", 12F)
+        txtFAddress.Font = New Font("Segoe UI", 12.0F)
         txtFAddress.Location = New Point(3, 5)
         txtFAddress.Multiline = True
         txtFAddress.Name = "txtFAddress"
@@ -1726,7 +2030,7 @@ Partial Class frmPanelHolder
         ' lblFEmail
         ' 
         lblFEmail.AutoSize = True
-        lblFEmail.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFEmail.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFEmail.ForeColor = Color.DimGray
         lblFEmail.ImageAlign = ContentAlignment.MiddleLeft
         lblFEmail.Location = New Point(21, 350)
@@ -1749,7 +2053,7 @@ Partial Class frmPanelHolder
         ' 
         txtFEmail.BorderStyle = BorderStyle.None
         txtFEmail.CharacterCasing = CharacterCasing.Lower
-        txtFEmail.Font = New Font("Segoe UI", 12F)
+        txtFEmail.Font = New Font("Segoe UI", 12.0F)
         txtFEmail.Location = New Point(3, 11)
         txtFEmail.Name = "txtFEmail"
         txtFEmail.Size = New Size(275, 22)
@@ -1758,7 +2062,7 @@ Partial Class frmPanelHolder
         ' lblFContactNumber
         ' 
         lblFContactNumber.AutoSize = True
-        lblFContactNumber.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFContactNumber.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFContactNumber.ForeColor = Color.DimGray
         lblFContactNumber.ImageAlign = ContentAlignment.MiddleLeft
         lblFContactNumber.Location = New Point(320, 350)
@@ -1781,7 +2085,7 @@ Partial Class frmPanelHolder
         ' 
         txtFContact.BorderStyle = BorderStyle.None
         txtFContact.CharacterCasing = CharacterCasing.Upper
-        txtFContact.Font = New Font("Segoe UI", 12F)
+        txtFContact.Font = New Font("Segoe UI", 12.0F)
         txtFContact.Location = New Point(3, 11)
         txtFContact.MaxLength = 11
         txtFContact.Name = "txtFContact"
@@ -1791,7 +2095,7 @@ Partial Class frmPanelHolder
         ' lblFFullname
         ' 
         lblFFullname.AutoSize = True
-        lblFFullname.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblFFullname.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblFFullname.ForeColor = Color.DimGray
         lblFFullname.ImageAlign = ContentAlignment.MiddleLeft
         lblFFullname.Location = New Point(21, 181)
@@ -1814,7 +2118,7 @@ Partial Class frmPanelHolder
         ' 
         txtFFullname.BorderStyle = BorderStyle.None
         txtFFullname.CharacterCasing = CharacterCasing.Upper
-        txtFFullname.Font = New Font("Segoe UI", 12F)
+        txtFFullname.Font = New Font("Segoe UI", 12.0F)
         txtFFullname.Location = New Point(3, 11)
         txtFFullname.Name = "txtFFullname"
         txtFFullname.Size = New Size(579, 22)
@@ -1836,7 +2140,7 @@ Partial Class frmPanelHolder
         ' lblFCreateSubtitle
         ' 
         lblFCreateSubtitle.AutoSize = True
-        lblFCreateSubtitle.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblFCreateSubtitle.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFCreateSubtitle.ForeColor = SystemColors.ControlDarkDark
         lblFCreateSubtitle.Location = New Point(19, 125)
         lblFCreateSubtitle.Name = "lblFCreateSubtitle"
@@ -1847,7 +2151,7 @@ Partial Class frmPanelHolder
         ' lblCreateFarmer
         ' 
         lblCreateFarmer.AutoSize = True
-        lblCreateFarmer.Font = New Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblCreateFarmer.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblCreateFarmer.ForeColor = Color.Black
         lblCreateFarmer.Location = New Point(12, 71)
         lblCreateFarmer.Name = "lblCreateFarmer"
@@ -1885,7 +2189,7 @@ Partial Class frmPanelHolder
         ' 
         btnSaveService.BackColor = Color.FromArgb(CByte(172), CByte(248), CByte(71))
         btnSaveService.FlatStyle = FlatStyle.Flat
-        btnSaveService.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnSaveService.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSaveService.ForeColor = Color.DarkGreen
         btnSaveService.Location = New Point(1126, 908)
         btnSaveService.Name = "btnSaveService"
@@ -1898,7 +2202,7 @@ Partial Class frmPanelHolder
         ' 
         btnServiceCancel.BackColor = Color.FromArgb(CByte(49), CByte(68), CByte(56))
         btnServiceCancel.FlatStyle = FlatStyle.Flat
-        btnServiceCancel.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        btnServiceCancel.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         btnServiceCancel.ForeColor = Color.White
         btnServiceCancel.Location = New Point(966, 908)
         btnServiceCancel.Name = "btnServiceCancel"
@@ -1921,7 +2225,7 @@ Partial Class frmPanelHolder
         lblServiceMainDir.AutoEllipsis = True
         lblServiceMainDir.AutoSize = True
         lblServiceMainDir.Cursor = Cursors.Hand
-        lblServiceMainDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServiceMainDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServiceMainDir.ForeColor = SystemColors.ControlDark
         lblServiceMainDir.Location = New Point(19, 25)
         lblServiceMainDir.Name = "lblServiceMainDir"
@@ -1932,7 +2236,7 @@ Partial Class frmPanelHolder
         ' lblServiceSubDir
         ' 
         lblServiceSubDir.AutoSize = True
-        lblServiceSubDir.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblServiceSubDir.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblServiceSubDir.ForeColor = Color.ForestGreen
         lblServiceSubDir.Location = New Point(139, 25)
         lblServiceSubDir.Name = "lblServiceSubDir"
@@ -1967,7 +2271,7 @@ Partial Class frmPanelHolder
         ' lblMachineID
         ' 
         lblMachineID.AutoSize = True
-        lblMachineID.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblMachineID.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblMachineID.ForeColor = Color.DimGray
         lblMachineID.ImageAlign = ContentAlignment.MiddleLeft
         lblMachineID.Location = New Point(328, 265)
@@ -1990,7 +2294,7 @@ Partial Class frmPanelHolder
         ' 
         cmbMachineryID.DropDownStyle = ComboBoxStyle.DropDownList
         cmbMachineryID.FlatStyle = FlatStyle.Flat
-        cmbMachineryID.Font = New Font("Segoe UI", 12F)
+        cmbMachineryID.Font = New Font("Segoe UI", 12.0F)
         cmbMachineryID.FormattingEnabled = True
         cmbMachineryID.Items.AddRange(New Object() {"WALK-BEHIND TRANSPLANTER", "RIDE-IN TYPE TRANSPLANTER", "DC35 COMBINE HARVESTER", "DC60 COMBINE HARVESTER", "DC70 COMBINE HARVESTER", "M9540 TRACTOR", "L3608 TRACTOR", "TYM TRACTOR (BACKHOE, ROTAVATOR, PLOUGH)", "CORN SHELLER", "FLATBED DRYER"})
         cmbMachineryID.Location = New Point(3, 9)
@@ -2001,7 +2305,7 @@ Partial Class frmPanelHolder
         ' lblServiceID
         ' 
         lblServiceID.AutoSize = True
-        lblServiceID.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblServiceID.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblServiceID.ForeColor = Color.DimGray
         lblServiceID.ImageAlign = ContentAlignment.MiddleLeft
         lblServiceID.Location = New Point(21, 87)
@@ -2024,7 +2328,7 @@ Partial Class frmPanelHolder
         ' 
         txtServiceID.BackColor = Color.White
         txtServiceID.BorderStyle = BorderStyle.None
-        txtServiceID.Font = New Font("Segoe UI", 12F)
+        txtServiceID.Font = New Font("Segoe UI", 12.0F)
         txtServiceID.Location = New Point(3, 11)
         txtServiceID.Name = "txtServiceID"
         txtServiceID.ReadOnly = True
@@ -2034,7 +2338,7 @@ Partial Class frmPanelHolder
         ' lblSEmployeeID
         ' 
         lblSEmployeeID.AutoSize = True
-        lblSEmployeeID.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblSEmployeeID.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblSEmployeeID.ForeColor = Color.DimGray
         lblSEmployeeID.ImageAlign = ContentAlignment.MiddleLeft
         lblSEmployeeID.Location = New Point(21, 583)
@@ -2057,7 +2361,7 @@ Partial Class frmPanelHolder
         ' 
         cmbEmployeeID.DropDownStyle = ComboBoxStyle.DropDownList
         cmbEmployeeID.FlatStyle = FlatStyle.Flat
-        cmbEmployeeID.Font = New Font("Segoe UI", 12F)
+        cmbEmployeeID.Font = New Font("Segoe UI", 12.0F)
         cmbEmployeeID.FormattingEnabled = True
         cmbEmployeeID.Location = New Point(3, 8)
         cmbEmployeeID.Name = "cmbEmployeeID"
@@ -2067,7 +2371,7 @@ Partial Class frmPanelHolder
         ' lblServiceDescription
         ' 
         lblServiceDescription.AutoSize = True
-        lblServiceDescription.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblServiceDescription.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblServiceDescription.ForeColor = Color.DimGray
         lblServiceDescription.ImageAlign = ContentAlignment.MiddleLeft
         lblServiceDescription.Location = New Point(21, 449)
@@ -2090,7 +2394,7 @@ Partial Class frmPanelHolder
         ' 
         txtServiceDescription.BorderStyle = BorderStyle.None
         txtServiceDescription.CharacterCasing = CharacterCasing.Upper
-        txtServiceDescription.Font = New Font("Segoe UI", 12F)
+        txtServiceDescription.Font = New Font("Segoe UI", 12.0F)
         txtServiceDescription.Location = New Point(3, 5)
         txtServiceDescription.Multiline = True
         txtServiceDescription.Name = "txtServiceDescription"
@@ -2100,7 +2404,7 @@ Partial Class frmPanelHolder
         ' lblServiceType
         ' 
         lblServiceType.AutoSize = True
-        lblServiceType.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblServiceType.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblServiceType.ForeColor = Color.DimGray
         lblServiceType.ImageAlign = ContentAlignment.MiddleLeft
         lblServiceType.Location = New Point(21, 183)
@@ -2123,7 +2427,7 @@ Partial Class frmPanelHolder
         ' 
         cmbServiceType.DropDownStyle = ComboBoxStyle.DropDownList
         cmbServiceType.FlatStyle = FlatStyle.Flat
-        cmbServiceType.Font = New Font("Segoe UI", 12F)
+        cmbServiceType.Font = New Font("Segoe UI", 12.0F)
         cmbServiceType.FormattingEnabled = True
         cmbServiceType.Items.AddRange(New Object() {"LAND PREPARATION", "PLANTING", "HARVESTING", "POST-HARVEST"})
         cmbServiceType.Location = New Point(3, 9)
@@ -2134,7 +2438,7 @@ Partial Class frmPanelHolder
         ' lblPolicyLimit
         ' 
         lblPolicyLimit.AutoSize = True
-        lblPolicyLimit.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblPolicyLimit.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblPolicyLimit.ForeColor = Color.DimGray
         lblPolicyLimit.ImageAlign = ContentAlignment.MiddleLeft
         lblPolicyLimit.Location = New Point(20, 352)
@@ -2157,7 +2461,7 @@ Partial Class frmPanelHolder
         ' 
         cmbPolicyLimit.DropDownStyle = ComboBoxStyle.DropDownList
         cmbPolicyLimit.FlatStyle = FlatStyle.Flat
-        cmbPolicyLimit.Font = New Font("Segoe UI", 12F)
+        cmbPolicyLimit.Font = New Font("Segoe UI", 12.0F)
         cmbPolicyLimit.FormattingEnabled = True
         cmbPolicyLimit.Items.AddRange(New Object() {"FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 3000 PER HECTARE FOR RICE; PHP 5000 PER HECTARE FOR CORN; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 2500 PER HECTARE; FUEL FULL TANK SYSTEM REQUIRED; OIL 1 LITER PHP 250 PER HECTARE; MEALS OF OPERATOR REQUIRED", "PHP 0.50 PER KG; FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED", "FUEL FULL TANK SYSTEM REQUIRED; MEALS OF OPERATOR REQUIRED"})
         cmbPolicyLimit.Location = New Point(3, 8)
@@ -2168,7 +2472,7 @@ Partial Class frmPanelHolder
         ' lblServiceName
         ' 
         lblServiceName.AutoSize = True
-        lblServiceName.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        lblServiceName.Font = New Font("Segoe UI Semibold", 10.0F, FontStyle.Bold)
         lblServiceName.ForeColor = Color.DimGray
         lblServiceName.ImageAlign = ContentAlignment.MiddleLeft
         lblServiceName.Location = New Point(21, 265)
@@ -2191,7 +2495,7 @@ Partial Class frmPanelHolder
         ' 
         cmbServiceName.DropDownStyle = ComboBoxStyle.DropDownList
         cmbServiceName.FlatStyle = FlatStyle.Flat
-        cmbServiceName.Font = New Font("Segoe UI", 12F)
+        cmbServiceName.Font = New Font("Segoe UI", 12.0F)
         cmbServiceName.FormattingEnabled = True
         cmbServiceName.Items.AddRange(New Object() {"LAND PREPARATION SERVICE", "SOIL TILLING SERVICE", "FIELD EXCAVATION SERVICE", "RICE PLANTING SERVICE", "RICE HARVESTING SERVICE", "CORN HARVESTING SERVICE", "CORN SHELLING SERVICE", "GRAIN DRYING SERVICE"})
         cmbServiceName.Location = New Point(-1, 9)
@@ -2215,7 +2519,7 @@ Partial Class frmPanelHolder
         ' lblAddServiceSubtitle
         ' 
         lblAddServiceSubtitle.AutoSize = True
-        lblAddServiceSubtitle.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAddServiceSubtitle.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblAddServiceSubtitle.ForeColor = SystemColors.ControlDarkDark
         lblAddServiceSubtitle.Location = New Point(19, 125)
         lblAddServiceSubtitle.Name = "lblAddServiceSubtitle"
@@ -2226,7 +2530,7 @@ Partial Class frmPanelHolder
         ' lblAddService
         ' 
         lblAddService.AutoSize = True
-        lblAddService.Font = New Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblAddService.Font = New Font("Segoe UI", 30.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblAddService.ForeColor = Color.Black
         lblAddService.Location = New Point(12, 71)
         lblAddService.Name = "lblAddService"
@@ -2234,90 +2538,35 @@ Partial Class frmPanelHolder
         lblAddService.TabIndex = 5
         lblAddService.Text = "Add Service"
         ' 
-        ' farmer_id
+        ' BtnTestConection
         ' 
-        farmer_id.DataPropertyName = "farmer_id"
-        farmer_id.HeaderText = "ID"
-        farmer_id.Name = "farmer_id"
-        farmer_id.Visible = False
-        ' 
-        ' formatted_id
-        ' 
-        formatted_id.DataPropertyName = "formatted_id"
-        formatted_id.HeaderText = "Farmer ID"
-        formatted_id.Name = "formatted_id"
-        formatted_id.Width = 225
-        ' 
-        ' full_name
-        ' 
-        full_name.DataPropertyName = "full_name"
-        full_name.HeaderText = "Full Name"
-        full_name.Name = "full_name"
-        full_name.Width = 300
-        ' 
-        ' residence_address
-        ' 
-        residence_address.DataPropertyName = "residence_address"
-        residence_address.HeaderText = "Address"
-        residence_address.Name = "residence_address"
-        residence_address.Width = 325
-        ' 
-        ' contact_number
-        ' 
-        contact_number.DataPropertyName = "contact_number"
-        contact_number.HeaderText = "ContactNumber"
-        contact_number.Name = "contact_number"
-        contact_number.Width = 200
-        ' 
-        ' classification
-        ' 
-        classification.DataPropertyName = "classification"
-        classification.HeaderText = "Classification"
-        classification.Name = "classification"
-        classification.Width = 200
-        ' 
-        ' registration_status
-        ' 
-        registration_status.DataPropertyName = "registration_status"
-        registration_status.HeaderText = "Status"
-        registration_status.Name = "registration_status"
-        registration_status.Width = 150
-        ' 
-        ' FarmerEdit
-        ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.NullValue = "None"
-        FarmerEdit.DefaultCellStyle = DataGridViewCellStyle3
-        FarmerEdit.HeaderText = "Edit"
-        FarmerEdit.Image = CType(resources.GetObject("FarmerEdit.Image"), Image)
-        FarmerEdit.Name = "FarmerEdit"
-        FarmerEdit.Resizable = DataGridViewTriState.True
-        FarmerEdit.SortMode = DataGridViewColumnSortMode.Automatic
-        FarmerEdit.Width = 75
-        ' 
-        ' FarmerDelete
-        ' 
-        FarmerDelete.DataPropertyName = "FarmerDelete"
-        FarmerDelete.HeaderText = "Delete"
-        FarmerDelete.Image = CType(resources.GetObject("FarmerDelete.Image"), Image)
-        FarmerDelete.Name = "FarmerDelete"
-        FarmerDelete.Width = 75
+        BtnTestConection.BackColor = Color.DarkSeaGreen
+        BtnTestConection.FlatAppearance.BorderSize = 0
+        BtnTestConection.FlatStyle = FlatStyle.Flat
+        BtnTestConection.Font = New Font("Arial", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        BtnTestConection.ForeColor = Color.White
+        BtnTestConection.Location = New Point(420, 364)
+        BtnTestConection.Name = "BtnTestConection"
+        BtnTestConection.Size = New Size(152, 41)
+        BtnTestConection.TabIndex = 11
+        BtnTestConection.Text = "Test Connection"
+        BtnTestConection.UseVisualStyleBackColor = False
         ' 
         ' frmPanelHolder
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1924, 1041)
-        Controls.Add(pnlFarmers)
-        Controls.Add(pnlCreateService)
-        Controls.Add(pnlServices)
+        Controls.Add(pnlConfig)
         Controls.Add(pnlRequests)
         Controls.Add(pnlCreateFarmer)
-        Controls.Add(pnlOperator)
+        Controls.Add(pnlFarmers)
         Controls.Add(pnlMachinery)
+        Controls.Add(pnlServices)
+        Controls.Add(pnlCreateService)
+        Controls.Add(pnlOperator)
         Controls.Add(pnlEmployee)
         Controls.Add(pnlStation)
-        Controls.Add(pnlConfig)
         Name = "frmPanelHolder"
         Text = "Form1"
         WindowState = FormWindowState.Maximized
@@ -2348,6 +2597,11 @@ Partial Class frmPanelHolder
         pnlOperator.PerformLayout()
         pnlMachinery.ResumeLayout(False)
         pnlMachinery.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
+        Panel6.PerformLayout()
+        Panel7.ResumeLayout(False)
+        CType(dgvMachinery, ComponentModel.ISupportInitialize).EndInit()
         pnlRequests.ResumeLayout(False)
         pnlRequests.PerformLayout()
         pnlDGVRequests.ResumeLayout(False)
@@ -2442,7 +2696,6 @@ Partial Class frmPanelHolder
     Friend WithEvents pnlFarmersSearch As Panel
     Friend WithEvents pnlFarmersDataGrid As Panel
     Friend WithEvents btnAddFarmer As Button
-    Friend WithEvents btnFarmerExport As Button
     Friend WithEvents pnlCreateFarmer As Panel
     Friend WithEvents lblFCreateSubtitle As Label
     Friend WithEvents lblCreateFarmer As Label
@@ -2504,11 +2757,11 @@ Partial Class frmPanelHolder
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn2 As DataGridViewImageColumn
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtRequestSearch As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents lblRequestsHeader As Label
@@ -2590,13 +2843,6 @@ Partial Class frmPanelHolder
     Friend WithEvents cmbMachineryID As ComboBox
     Friend WithEvents cmbServiceName As ComboBox
     Friend WithEvents cmbPolicyLimit As ComboBox
-    Friend WithEvents service_id As DataGridViewTextBoxColumn
-    Friend WithEvents machinery_id As DataGridViewTextBoxColumn
-    Friend WithEvents service_name As DataGridViewTextBoxColumn
-    Friend WithEvents service_type As DataGridViewTextBoxColumn
-    Friend WithEvents service_description As DataGridViewTextBoxColumn
-    Friend WithEvents service_policy_limit As DataGridViewTextBoxColumn
-    Friend WithEvents employee_id As DataGridViewTextBoxColumn
     Friend WithEvents farmer_id As DataGridViewTextBoxColumn
     Friend WithEvents formatted_id As DataGridViewTextBoxColumn
     Friend WithEvents full_name As DataGridViewTextBoxColumn
@@ -2606,5 +2852,31 @@ Partial Class frmPanelHolder
     Friend WithEvents registration_status As DataGridViewTextBoxColumn
     Friend WithEvents FarmerEdit As DataGridViewImageColumn
     Friend WithEvents FarmerDelete As DataGridViewImageColumn
+    Friend WithEvents service_id As DataGridViewTextBoxColumn
+    Friend WithEvents machinery_name As DataGridViewTextBoxColumn
+    Friend WithEvents service_name As DataGridViewTextBoxColumn
+    Friend WithEvents service_type As DataGridViewTextBoxColumn
+    Friend WithEvents service_description As DataGridViewTextBoxColumn
+    Friend WithEvents service_policy_limit As DataGridViewTextBoxColumn
+    Friend WithEvents employee_name As DataGridViewTextBoxColumn
+    Friend WithEvents LblMachinery As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtMachinerySearch As TextBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents HeaderMachinery As Label
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents MachineAmount As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents btnAddMachinery As Button
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents dgvMachinery As DataGridView
+    Friend WithEvents formatted_machinery_id As DataGridViewTextBoxColumn
+    Friend WithEvents machine_name As DataGridViewTextBoxColumn
+    Friend WithEvents machinery_type As DataGridViewTextBoxColumn
+    Friend WithEvents station_id As DataGridViewTextBoxColumn
+    Friend WithEvents condition As DataGridViewTextBoxColumn
+    Friend WithEvents availability As DataGridViewTextBoxColumn
+    Friend WithEvents BtnTestConection As Button
 
 End Class

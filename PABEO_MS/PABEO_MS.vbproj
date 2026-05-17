@@ -9,13 +9,50 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Report Templates\01_Farmer_Report.xlsx" />
+    <None Remove="Report Templates\02_Service_Report.xlsx" />
+    <None Remove="Report Templates\03_Requests_Report.xlsx" />
+    <None Remove="Report Templates\04_Machinery_Report.xlsx" />
+    <None Remove="Report Templates\05_Operator_Report.xlsx" />
+    <None Remove="Report Templates\06_Employee_Report.xlsx" />
+    <None Remove="Report Templates\07_Station_Report.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Report Templates\01_Farmer_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\02_Service_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\03_Requests_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\04_Machinery_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\05_Operator_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\06_Employee_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report Templates\07_Station_Report.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="8.5.4" />
     <PackageReference Include="MySql.Data" Version="9.7.0" />
+    <PackageReference Include="OfficeOpenXml.Core.ExcelPackage" Version="1.0.0" />
+    <PackageReference Include="OfficeOpenXml.Extends" Version="1.0.6" />
   </ItemGroup>
 
   <ItemGroup>
